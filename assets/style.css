@@ -175,9 +175,19 @@ main section.active {
 
 /* Formato para sección Inicio + Logo */
 
-#inicio {
+[data-section="logo-sub"] {
+    font-size: 1.7rem;
+    color: var(--verde);
+    margin-top: -50px !important; 
+    margin-bottom: 25px;
+}
+
+[data-section="video-sub"] {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--beige);
     text-align: center;
-    padding-top: 0 !important; 
+    margin-top: -20px;
 }
 
 .hero-container {
@@ -221,13 +231,6 @@ main section.active {
     filter: drop-shadow(0 0 15px #a3d977);
 }
 
-#inicio p {
-    font-size: 1rem;
-    color: var(--beige);
-    margin-top: -50px !important; 
-    margin-bottom: 25px;
-}
-
 .container-video {
     max-width: 600px;
     width: 90%;
@@ -245,16 +248,17 @@ main section.active {
 }
 
 /* --- HERO VIDEO MEJORADO: ahora pegado al header y ancho completo --- */
+
 .hero {
     position: relative;
-    width: 100vw; /* Ancho completo de la ventana */
+    width: 100vw;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    height: 500px; /* altura tipo banner */
+    height: 500px;
     overflow: hidden;
-    margin-top: -20px; /* Para pegarlo al header */
+    margin-top: -20px;
     margin-bottom: 30px;
 }
 
@@ -277,7 +281,7 @@ main section.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece el video para que se lea el texto */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
@@ -329,7 +333,7 @@ main section.active {
     position: relative;
     width: 100%;
     max-width: 600px;
-    aspect-ratio: 2 / 1.6; /* hace que sea cuadrado */
+    aspect-ratio: 2 / 1.6;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
@@ -342,7 +346,6 @@ main section.active {
     display: block;
 }
 
-/* Overlay oscuro arriba de la imagen */
 .proximo-show-overlay {
     position: absolute;
     inset: 0;
@@ -352,17 +355,12 @@ main section.active {
     justify-content: center;
 }
 
-/* Contenedor botones */
-
 .overlay-buttons {
     display: flex;
-    flex-direction: flex;
     gap: 20px;
 }
 
-/* Botón principal */
-
-.btn-show-primary {
+.btn-proximo-show {
     padding: 14px 28px;
     background-color: var(--beige);
     color: var(--gris-oscuro);
@@ -374,7 +372,7 @@ main section.active {
     transition: all 0.3s ease;
 }
 
-.btn-show-primary:hover {
+.btn-proximo-show:hover {
     background-color: var(--gris-oscuro);
     color: var(--beige);
     border: 2px solid var(--beige);
@@ -382,8 +380,7 @@ main section.active {
     filter: drop-shadow(0 0 15px #a3d977);
 }
 
-/* Botón secundario */
-.btn-show-secondary {
+.btn-ver-todos {
     padding: 14px 28px;
     border: 2px solid var(--beige);
     color: var(--beige);
@@ -394,7 +391,7 @@ main section.active {
     transition: all 0.3s ease;
 }
 
-.btn-show-secondary:hover {
+.btn-ver-todos:hover {
     background-color: var(--beige);
     color: var(--negro);
     border: 2px solid var(--gris-oscuro);
@@ -425,15 +422,12 @@ main section.active {
 
 #nosotros p[data-section="nosotros-piedefoto"] {
     font-size: 1rem;
-    color: var(--gris-claro);
+    color: var(--beige);
     font-style: italic;
     margin-bottom: 40px;
 }
 
-/* Caja con la info de la banda */
-
 #nosotros h2 {
-
     background-color: var(--negro);
     border-left: 4px solid var(--verde);
     padding: 20px 30px;
@@ -474,25 +468,27 @@ main section.active {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* --- REPRODUCTOR DE VIDEO MEJORADO --- */
-
+/* --- REPRODUCTOR DE VIDEO MEJORADO (VERSIÓN ÚNICA) --- */
 .enhanced-player {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 2px solid var(--verde);
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .enhanced-player video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     background: #000;
-    border-radius: 10px;
+    object-fit: cover;
 }
 
-/* Estilo para los controles nativos del navegador (se ven mejor con este fondo) */
 .enhanced-player video::-webkit-media-controls-panel {
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
@@ -502,32 +498,16 @@ main section.active {
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
 }
 
-/* --- GALERÍA DE FOTOS CORREGIDA Y MEJORADA --- */
-
+/* --- GALERÍA DE FOTOS CORREGIDA Y OPTIMIZADA (SIN TÍTULO) --- */
 #galeria {
     margin-top: 30px;
     text-align: center;
     padding: 20px 0;
 }
 
-#galeria h2 {
-    color: var(--beige);
-    margin-bottom: 30px;
-    font-size: 2rem;
-    font-family: "Playfair Display", serif;
-    position: relative;
-    display: inline-block;
-}
-
-#galeria h2:after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--verde);
+/* Ocultamos el título vacío */
+#galeria h2[data-section="galeria-titulo"] {
+    display: none;
 }
 
 .galeria-grid {
@@ -548,6 +528,7 @@ main section.active {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     border: 3px solid transparent;
+    background-color: var(--gris-oscuro); /* Fondo mientras carga */
 }
 
 .galeria-grid img:hover {
@@ -556,19 +537,7 @@ main section.active {
     border-color: var(--verde);
 }
 
-/* Para asegurar que las imágenes carguen correctamente, agregamos un fondo de respaldo */
-.galeria-grid img::before {
-    content: "📷";
-    display: block;
-    text-align: center;
-    line-height: 280px;
-    background: var(--gris-oscuro);
-    color: var(--gris-claro);
-    font-size: 3rem;
-}
-
-/* --- CAROUSEL BUTTONS MEJORADOS (usando íconos) --- */
-
+/* --- CAROUSEL BUTTONS MEJORADOS --- */
 .carousel-container {
     display: flex;
     align-items: center;
@@ -599,17 +568,16 @@ main section.active {
 }
 
 /* Formato para Shows */
-
 #shows h2 {
     font-size: 1.7rem;
     color: var(--beige);
     margin-bottom: 25px;
 }
 
- #shows h3 {
+#shows h3 {
     font-size: 1.4rem;
     color: var(--gris-claro)
- }
+}
 
 #lista-shows-proximos, #lista-shows-pasados {
     list-style: none;
@@ -630,13 +598,9 @@ main section.active {
     border: none;
 }
 
-/* Hover próximos Shows */
-
 #lista-shows-proximos .show-card:hover {
     transform: scale(1.01);
 }
-
-/* Fechas de los Shows */
 
 .show-date-box {
     background-color: var(--verde) !important;
@@ -694,8 +658,6 @@ main section.active {
     color: #444 !important;
 }
 
-/* Formato para Shows anteriores (Sacamos el hover + color grisáceo) */
-
 .show-card.pasado {
     opacity: 0.5;
     filter: grayscale(100%);
@@ -715,9 +677,6 @@ main section.active {
 .show-card.pasado .show-city {
     color: #444;
 }
-
-/* Formato botón para Reservar */
-
 
 .show-actions {
     display: flex;
@@ -745,8 +704,7 @@ main section.active {
     filter: drop-shadow(0 0 15px #a3d977);
 }
 
-/* Formato para el forrmulario de Contacto */
-
+/* Formato para Contacto */
 #contacto {
     max-width: 600px;
     margin: 0 auto;
@@ -788,8 +746,6 @@ main section.active {
     border-color: var(--verde);
 }
 
-/* Formato para enviar el formulario de Contacto */
-
 #btn-enviar {
     width: 100%;
     padding: 15px;
@@ -813,7 +769,6 @@ main section.active {
 }
 
 /* Formato del Pie de Página */
-
 footer {
     background-color: var(--negro) !important;
     color: var(--blanco);
@@ -822,7 +777,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     border-top: 3px solid var(--gris-claro);
-    flex-shrink: 0; /* Evita que el footer se encoja */
+    flex-shrink: 0;
     width: 100%;
 }
 
@@ -848,14 +803,12 @@ footer p {
 }
 
 /* Formato para dispositivos móviles */
-
 @media (max-width: 768px) {
     header { flex-direction: column; align-items: stretch; }
-    #language-switcher { justify-content: center; padding: 15px 0; border-bottom: 1px solid var(--gris-oscuro); }
+    
     nav ul { flex-direction: column; width: 100%; }
     nav a.active-link { border-left: 4px solid var(--verde); margin-bottom: 0; }
     
-    /* Ajustes para el hero en móvil */
     .hero {
         height: 350px;
         margin-top: -10px;
@@ -869,7 +822,6 @@ footer p {
         font-size: 1rem;
     }
     
-    /* Galería en móvil */
     .galeria-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
@@ -882,6 +834,11 @@ footer p {
     .show-card { min-height: 80px; }
     .show-date-box { min-width: 85px; font-size: 0.8rem; }
     .show-actions { display: none; }
+    
+    .enhanced-player {
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+    }
     
     footer { flex-direction: column; gap: 15px; }
     footer p { text-align: center; }

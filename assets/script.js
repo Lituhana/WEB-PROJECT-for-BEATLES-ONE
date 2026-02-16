@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "galeria": "Galería",
             "shows": "Próximos Shows",
             "contacto": "Contacto",
+            "btn-proximo-show": "Próximo Show",
+            "btn-ver-todos": "Ver todos los shows",
             "logo-sub": "El tributo definitivo a los 4 de Liverpool",
             "video-sub": "Beatles One en Bs As (2025) - Long Tall Sally",
             "nosotros-titulo_1": "Beatles One",
@@ -47,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "galeria": "Gallery",
             "shows": "Upcoming Gigs",
             "contacto": "Contact",
+            "btn-proximo-show": "Next Show",
+            "btn-ver-todos": "See all shows",
             "logo-sub": "The ultimate tribute to the Fab Four",
             "video-sub": "Beatles One at Bs As (2025) - Long Tall Sally",
             "nosotros-titulo_1": "Beatles One",
@@ -89,8 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 4. Lógica de Idiomas
+    // 4. Lógica de Idiomas - VERSIÓN CORREGIDA
     const changeLanguage = (lang) => {
+        // Traducir todos los elementos con data-section
         document.querySelectorAll("[data-section]").forEach(el => {
             const key = el.getAttribute("data-section");
             if (translations[lang][key]) {
@@ -102,6 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const mensajeTextarea = document.getElementById("mensaje");
         if (mensajeTextarea) {
             mensajeTextarea.placeholder = lang === "es" ? "Dejanos tu mensaje" : "Leave us your message";
+        }
+        
+        // TRADUCCIÓN DIRECTA para los botones del overlay (por si no tienen data-section)
+        const btnProximoShow = document.querySelector('.btn-show-primary');
+        const btnVerTodos = document.querySelector('.btn-show-secondary');
+        
+        if (btnProximoShow) {
+            btnProximoShow.textContent = translations[lang]["btn-proximo-show"];
+        }
+        
+        if (btnVerTodos) {
+            btnVerTodos.textContent = translations[lang]["btn-ver-todos"];
         }
         
         document.documentElement.lang = lang;
@@ -253,14 +270,14 @@ document.addEventListener("DOMContentLoaded", () => {
             src: "assets/VIDEOS/Video_2.mp4",
             caption: {
                 es: "Beatles One en Bs As (2025) - Hey Jude",
-                en: "Beatles One at Bs As - Hey Jude"
+                en: "Beatles One at Bs As (2025) - Hey Jude"
             }
         },
         {
             src: "assets/VIDEOS/Video_3.mp4",
             caption: {
-                es: "Beatles One - Actuación en The Shannon Irish Pub",
-                en: "Beatles One - Performance at The Shannon Irish Pub"
+                es: "Beatles One en La Vaca Azul (2025) - I wanna be your man",
+                en: "Beatles One at La Vaca Azul (2025) - I wanna be your man"
             }
         }
     ];
@@ -288,47 +305,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const form = document.getElementById("contacto-formulario");
-const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
+    const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
 
-if (form) {
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-        const formData = new FormData(form);
+            const formData = new FormData(form);
 
-        try {
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                form.reset();
-
-                if (mensajeConfirmacion) {
-                    mensajeConfirmacion.style.display = "block";
-                    mensajeConfirmacion.scrollIntoView({ behavior: "smooth" });
-
-        setTimeout(() => {
-            mensajeConfirmacion.style.display = "none";
-        }, 4000); // 4 segundos
-    }
-
-                // Nos aseguramos de que quede en la sección contacto
-                document.getElementById("contacto").classList.add("active");
-                document.querySelectorAll("main section").forEach(s => {
-                    if (s.id !== "contacto") s.classList.remove("active");
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
-            }
 
-        } catch (error) {
-            console.error("Error enviando formulario:", error);
-        }
-    });
-}
+                if (response.ok) {
+                    form.reset();
+
+                    if (mensajeConfirmacion) {
+                        mensajeConfirmacion.style.display = "block";
+                        mensajeConfirmacion.scrollIntoView({ behavior: "smooth" });
+
+                        setTimeout(() => {
+                            mensajeConfirmacion.style.display = "none";
+                        }, 4000);
+                    }
+
+                    // Nos aseguramos de que quede en la sección contacto
+                    document.getElementById("contacto").classList.add("active");
+                    document.querySelectorAll("main section").forEach(s => {
+                        if (s.id !== "contacto") s.classList.remove("active");
+                    });
+                }
+
+            } catch (error) {
+                console.error("Error enviando formulario:", error);
+            }
+        });
+    }
+    
     // 7. Inicialización
     loadShowsFromSheet();
     
@@ -346,7 +364,7 @@ if (form) {
             const scrollToShows = () => {
                 const header = document.querySelector('header');
                 const headerHeight = header ? header.offsetHeight : 0;
-                const extraOffsetPx = 19; // ≈ 0.5cm in CSS pixels
+                const extraOffsetPx = 19;
                 if (showsSection) {
                     const top = showsSection.getBoundingClientRect().top + window.scrollY - headerHeight - extraOffsetPx;
                     window.scrollTo({ top, behavior: 'smooth' });
@@ -355,13 +373,11 @@ if (form) {
 
             if (showsNavLink) {
                 showsNavLink.click();
-                // small delay so layout/active class settles before scrolling
                 setTimeout(scrollToShows, 50);
             } else {
                 if (showsSection) {
                     document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
                     showsSection.classList.add('active');
-                    // immediately adjust scroll
                     setTimeout(scrollToShows, 10);
                 }
             }

@@ -94,7 +94,7 @@ header {
 }
 
 #cambiar-idioma button:hover {
-    background-color: var(--gris-claro) !important;
+    background-color: var(--negro) !important;
     border-color: var(--gris-oscuro);
     transform: scale(1.05);
     filter: drop-shadow(0 0 15px #a3d977);
@@ -178,92 +178,6 @@ main section.active {
 #inicio {
     text-align: center;
     padding-top: 0 !important; 
-<<<<<<< HEAD
-}
-
-.proximo-show-section {
-    padding: 100px 20px;
-    display: flex;
-    justify-content: center;
-    background: var(--gris-oscuro);
-}
-
-.proximo-show-card {
-    position: relative;
-    max-width: 600px;
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-}
-
-.proximo-show-img {
-    width: 100%;
-    height: 110%;
-    object-fit: cover;
-    display: block;
-}
-
-.proximo-show-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.60);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--beige);
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.proximo-show-overlay h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.overlay-buttons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.btn-show-primary,
-.btn-show-secondary {
-    padding: 12px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.btn-show-primary {
-    font-size: 18px;
-    background: var(--beige);
-    color: var(--gris-oscuro);
-}
-
-.btn-show-primary:hover {
-    background: var(--gris-oscuro);
-    color: var(--beige);
-    filter: drop-shadow(0 0 15px #a3d977);
-}
-
-.btn-show-secondary {
-    font-size: 16px;
-    background: var(--gris-oscuro);
-    color: var(--beige);
-}
-
-.btn-show-secondary:hover {
-    background: var(--beige);
-    color: var(--gris-oscuro);
-    filter: drop-shadow(0 0 15px #a3d977);
-=======
->>>>>>> 88acc155ba5cd61b21b6d36ed772297417e51101
 }
 
 .hero-container {
@@ -276,57 +190,11 @@ main section.active {
     min-height: auto;
 }
 
-/* HERO image and overlay */
-
-.hero {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    overflow: hidden;
-    height: clamp(320px, 40vh, 520px); 
-}
-
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    background-color: transparent;
-}
-
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.12); 
-    z-index: 1;
-}
-
-.hero-content {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-content img, .hero-content p {
-    pointer-events: auto;
-}
-
 .hero-logo {
     max-width: 280px;
     width: 80%;
     height: auto;
-    margin-top: 20px;
-    filter: brightness(1.05);
-    transition: filter 0.3s ease;
+    margin-bottom: 15px;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
@@ -338,14 +206,10 @@ main section.active {
 }
 
 .container-logo img {
-    max-width: 200px;
-    width: 60%;
+    max-width: 280px;
+    width: 80%;
     height: auto;
-<<<<<<< HEAD
-    margin-top: 20px !important; 
-=======
     margin-top: -25px; 
->>>>>>> 88acc155ba5cd61b21b6d36ed772297417e51101
     margin-bottom: 0px !important;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -357,26 +221,17 @@ main section.active {
     filter: drop-shadow(0 0 15px #a3d977);
 }
 
-<<<<<<< HEAD
-#inicio p[data-section="logo-sub"] {
-    font-size: 1.5rem;
-    color: var(--verde);
-    margin-top: -10px !important; 
-    margin-bottom: 30px;
-=======
 #inicio p {
     font-size: 1.5rem;
     color: var(--beige);
     margin-top: -5px !important; 
     margin-bottom: 25px;
->>>>>>> 88acc155ba5cd61b21b6d36ed772297417e51101
 }
 
 .container-video {
     max-width: 600px;
-<<<<<<< HEAD
-    width: 100%;
-    margin: 0;
+    width: 90%;
+    margin: 30px auto;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -389,75 +244,89 @@ main section.active {
     border: none;
 }
 
-#inicio p[data-section="video-sub"] {
-    font-size: 1rem;
-    color: var(--gris-claro);
-    font-style: italic;
-    margin-top: 15px;
-    margin-bottom: 30px;
+/* ================= PROXIMO SHOW ================= */
+
+.proximo-show-section {
+    margin: 60px auto;
+    display: flex;
+    justify-content: center;
 }
 
-/* Creamos un carrusel de videos */
-
-.carousel-container {
+.proximo-show-card {
     position: relative;
-    max-width: 700px;
-    width: 90%;
-    margin: 40px auto 20px;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 2 / 1.6; /* hace que sea cuadrado */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.proximo-show-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay oscuro arriba de la imagen */
+.proximo-show-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Contenedor botones */
+
+.overlay-buttons {
+    display: flex;
+    flex-direction: flex;
     gap: 20px;
 }
 
-.carousel-btn {
-    background-color: rgba(163, 217, 119, 0.8);
-    color: var(--negro);
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
+/* Botón principal */
+
+.btn-show-primary {
+    padding: 14px 28px;
+    background-color: var(--beige);
+    color: var(--gris-oscuro);
+    border: 2px solid var(--gris-oscuro);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif; 
+    font-weight: 700;
+    border-radius: 6px;
     transition: all 0.3s ease;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    line-height: 1;
-    padding-bottom: 3px;
 }
 
-.carousel-btn:hover {
-    background-color: var(--verde);
-    transform: scale(1.15);
-    box-shadow: 0 4px 12px rgba(163, 217, 119, 0.5);
+.btn-show-primary:hover {
+    background-color: var(--gris-oscuro);
+    color: var(--beige);
+    border: 2px solid var(--beige);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #a3d977);
 }
 
-.carousel-btn:active {
-    transform: scale(1.05);
+/* Botón secundario */
+.btn-show-secondary {
+    padding: 14px 28px;
+    border: 2px solid var(--beige);
+    color: var(--beige);
+    background-color: var(--gris-oscuro);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
-.container-video {
-    max-width: 600px;
-    width: 100%;
-    margin: 0;
-=======
-    width: 90%;
-    margin: 30px auto;
->>>>>>> 88acc155ba5cd61b21b6d36ed772297417e51101
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.container-video iframe, .container-video video {
-    width: 100%;
-    height: 350px;
-    display: block;
-    border: none;
+.btn-show-secondary:hover {
+    background-color: var(--beige);
+    color: var(--negro);
+    border: 2px solid var(--gris-oscuro);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #a3d977);
 }
 
 /* Formato para sección Nosotros */
@@ -467,7 +336,7 @@ main section.active {
 }
 
 #nosotros h1 {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     margin-bottom: 10px;
     color: var(--beige);
 }
@@ -491,12 +360,13 @@ main section.active {
 /* Caja con la info de la banda */
 
 #nosotros h2 {
+
     background-color: var(--negro);
     border-left: 4px solid var(--verde);
     padding: 20px 30px;
     padding-bottom: 15px;
     margin: 30px auto 0;
-    max-width: 950px;
+    max-width: 900px;
     text-align: left;
     font-size: 1.8rem;
     color: var(--beige);
@@ -509,10 +379,10 @@ main section.active {
     border-left: 4px solid var(--verde);
     padding: 0 30px 15px 30px;
     margin: 0 auto;
-    max-width: 950px;
+    max-width: 900px;
     text-align: left;
     color: var(--verde);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1.6;
     font-weight: 600;
 }
@@ -521,10 +391,10 @@ main section.active {
     background-color: var(--negro);
     padding: 0 30px 20px 30px;
     margin: 0 auto;
-    max-width: 950px;
+    max-width: 900px;
     text-align: left;
     line-height: 1.7;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--beige);
     border-radius: 0 0 8px 8px;
     border-left: 4px solid var(--verde);
@@ -571,13 +441,13 @@ main section.active {
 /* Formato para Shows */
 
 #shows h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: var(--beige);
     margin-bottom: 25px;
 }
 
  #shows h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--gris-claro)
  }
 
@@ -712,6 +582,7 @@ main section.active {
 .btn-ticket:hover {
     background-color: var(--negro);
     color: var(--beige) !important;
+    filter: drop-shadow(0 0 15px #a3d977);
 }
 
 /* Formato para el forrmulario de Contacto */
@@ -722,7 +593,7 @@ main section.active {
 }
 
 #contacto h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 30px;
     margin-top: 50px;
     color: var(--beige);
@@ -776,23 +647,9 @@ main section.active {
 
 #btn-enviar:hover {
     background-color: var(--negro);
-    color: var(--beige);
+    color: var(--verde);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px;
-}
-
-/* Mensaje de Confirmación */
-
-#mensaje-confirmacion {
-    background-color: var(--verde);
-    color: var(--negro);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 10px rgba(163, 217, 119, 0.3);
+    filter: drop-shadow(0 0 15px #a3d977);
 }
 
 /* Formato del Pie de Página */

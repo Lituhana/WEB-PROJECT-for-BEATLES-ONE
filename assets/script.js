@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "shows": "Próximos Shows",
             "contacto": "Contacto",
             "logo-sub": "El tributo definitivo a los 4 de Liverpool",
-            "video-sub": "Beatles One participando de la 25° Beatleweek en The Cavern Club de Bs As - 2025",
+            "video-sub": "Beatles One en Bs As (2025) - Long Tall Sally",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "El tributo a The Beatles de origen Uruguayo",
             "nosotros-piedefoto": "Beatles One participando de la 25° Beatleweek en The Cavern Club de Bs As - 2025",
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "shows": "Upcoming Gigs",
             "contacto": "Contact",
             "logo-sub": "The ultimate tribute to the Fab Four",
-            "video-sub": "Beatles One performing at the 25th Beatleweek at The Cavern Club in Buenos Aires - 2025",
+            "video-sub": "Beatles One at Bs As (2025) - Long Tall Sally",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "The Uruguayan Beatles Tribute Band",
             "nosotros-piedefoto": "Beatles One performing at the 25th Beatleweek at The Cavern Club in Buenos Aires - 2025",
@@ -243,21 +243,21 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const videos = [
         {
-            src: "assets/img/Video_1.mp4",
+            src: "assets/VIDEOS/Video_1.mp4",
             caption: {
                 es: "Beatles One en Bs As (2025) - Long Tall Sally",
                 en: "Beatles One at Bs As (2025) - Long Tall Sally"
             }
         },
         {
-            src: "assets/img/Video_2.mp4",
+            src: "assets/VIDEOS/Video_2.mp4",
             caption: {
                 es: "Beatles One en Bs As (2025) - Hey Jude",
                 en: "Beatles One at Bs As - Hey Jude"
             }
         },
         {
-            src: "assets/img/Video_3.mp4",
+            src: "assets/VIDEOS/Video_3.mp4",
             caption: {
                 es: "Beatles One - Actuación en The Shannon Irish Pub",
                 en: "Beatles One - Performance at The Shannon Irish Pub"

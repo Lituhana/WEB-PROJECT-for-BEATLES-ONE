@@ -6,7 +6,8 @@
     <title> Beatles One 🇺🇾 </title>
     <link rel="stylesheet" href="assets/style.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <!-- Agregamos Font Awesome para iconos del reproductor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -44,9 +45,9 @@
 
 <section id="inicio" class="active">
 
-    <!-- HERO -->
+    <!-- HERO - BANNER VIDEO MODIFICADO: ahora pegado al header y ancho completo -->
     <div class="hero">
-        <video autoplay muted loop class="hero-video">
+        <video autoplay muted loop class="hero-video" playsinline>
             <source src="assets/VIDEOS/BO_2.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
@@ -60,7 +61,6 @@
             </p>
         </div>
     </div>
-
 
     <!-- PROXIMO SHOW CON IMAGEN -->
 
@@ -88,22 +88,22 @@
 
 </div>
 
-
-    <!-- GALERIA de VIDEOS -->
+    <!-- GALERIA de VIDEOS - REPRODUCTOR MEJORADO -->
 
     <div class="inicio-contenido">
 
         <div class="carousel-container">
-            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
             
-            <div class="container-video">
-                <video controls id="videoPlayer">
-                    <source src="assets/img/Video_1.mp4" type="video/mp4">
+            <div class="container-video enhanced-player">
+                <video controls id="videoPlayer" poster="assets/img/video-poster.jpg">
+                    <source src="assets/VIDEOS/Video_1.mp4" type="video/mp4">
+                    <source src="assets/VIDEOS/Video_2.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
                 </video>
             </div>
             
-            <button class="carousel-btn next" id="nextBtn">›</button>
+            <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         </div>
 
         <p data-section="video-sub" id="videoCaption">
@@ -143,12 +143,15 @@
         </section>
 
         <section id="galeria">
+            <!-- Agregamos un título para la galería -->
+
+            <h2 data-section="galeria-titulo"></h2>
             <div class="galeria-grid">
-                <img src="assets/img/Foto1.jpg" alt="Beatles One">
-                <img src="assets/img/Foto2.jpg" alt="Beatles One en Inmigrantes MVD">
-                <img src="assets/img/Foto3.jpg" alt="Beatles One en La Vaca Azul">
-                <img src="assets/img/Foto4.jpg" alt="Beatles One">
-                <img src="assets/img/Foto5.jpg" alt="Beatles One en Brickel">
+                <img src="assets/img/Foto1.jpg" alt="Beatles One" loading="lazy">
+                <img src="assets/img/Foto2.jpg" alt="Beatles One en Inmigrantes MVD" loading="lazy">
+                <img src="assets/img/Foto3.jpg" alt="Beatles One en La Vaca Azul" loading="lazy">
+                <img src="assets/img/Foto4.jpg" alt="Beatles One" loading="lazy">
+                <img src="assets/img/Foto5.jpg" alt="Beatles One en Brickel" loading="lazy">
             </div>
             
         </section>

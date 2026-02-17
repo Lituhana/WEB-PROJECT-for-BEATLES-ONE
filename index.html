@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Beatles One 🇺🇾 </title>
-    <link rel="stylesheet" href="assets/style.css?v=2">
+
+    <meta name="description" content="Beatles One es el tributo uruguayo definitivo a The Beatles. Revivimos la magia de Liverpool en cada show. Finalistas de la BeatleWeek 2025 en Buenos Aires.">
+    <meta name="keywords" content="Beatles One, tributo Beatles, Beatles Uruguay, Beatles Montevideo, banda tributo Beatles, BeatleWeek">
+    <meta name="author" content="Beatles One">
+    <link rel="canonical" href="https://www.beatlesone.com.uy">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.beatlesone.com.uy">
+    <meta property="og:title" content="Beatles One | Tributo a The Beatles - Montevideo">
+    <meta property="og:description" content="El tributo uruguayo definitivo a los 4 de Liverpool. Finalistas de la BeatleWeek 2025 en The Cavern Club, Buenos Aires.">
+    <meta property="og:image" content="assets/img/Beatles_One_Beatleweek.png">
+
+
+    <link rel="stylesheet" href="assets/style.css?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
- <body>
+<body>
 
     <header>
 
@@ -25,7 +39,7 @@
 
             <!-- Creamos la barra de navegación con pestañas -->
 
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#inicio" data-section="inicio"> Inicio </a></li>
                 <li><a href="#nosotros" data-section="nosotros"> ¿Quiénes somos? </a></li>
                 <li><a href="#galeria" data-section="galeria"> Galería </a></li>
@@ -53,8 +67,7 @@
             <!-- Banner con video de la banda -->
 
             <div class="hero">
-                <video autoplay muted loop class="hero-video" playsinline>
-                    <source src="assets/VIDEOS/BO_1.mp4" type="video/mp4">
+                <video autoplay muted loop class="hero-video" playsinline> <source src="assets/VIDEOS/BO_1.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
                 </video>
 
@@ -89,20 +102,18 @@
                                 Próximo Show
                             </a>
 
-                            <a href="#contacto"
+                            <a href="#shows"
                                class="btn-ver-todos"
+                               id="btn-ver-todos"
                                data-section="btn-ver-todos">
                                 Ver todos los shows
                             </a>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-            <!-- Pestaña Inicio -->
+            <!-- Pestaña Inicio - Carrusel de videos -->
 
             <div class="inicio-contenido">
 
@@ -115,8 +126,6 @@
                     <div class="container-video enhanced-player">
                         <video controls id="videoPlayer" poster="assets/img/video-poster.jpg">
                             <source src="assets/VIDEOS/Video_1.mp4" type="video/mp4">
-                            <source src="assets/VIDEOS/Video_2.mp4" type="video/mp4">
-                            <source src="assets/VIDEOS/Video_3.mp4" type="video/mp4">
                             Tu navegador no soporta el video.
                         </video>
                     </div>
@@ -130,6 +139,34 @@
                 <p data-section="video-sub" id="videoCaption">
                     Beatles One en Bs As (2025) - Long Tall Sally
                 </p>
+
+            </div>
+
+            <!-- Redes sociales -->
+
+            <div class="redes-section">
+
+                <div class="red-card">
+                    <h3 class="red-titulo" data-section="youtube-titulo"> Nuestro YouTube </h3>
+                    <a href="https://www.youtube.com/@beatlesone"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn-youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span data-section="youtube-btn"> Ver canal </span>
+                    </a>
+                </div>
+
+                <div class="red-card">
+                    <h3 class="red-titulo" data-section="instagram-titulo"> Seguinos en Instagram </h3>
+                    <a href="https://www.instagram.com/beatles.one"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn-instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span data-section="instagram-btn"> @beatles.one </span>
+                    </a>
+                </div>
 
             </div>
 
@@ -169,41 +206,47 @@
 
         <!-- Pestaña con la Galería de Fotos -->
 
-        <section id="galeria">
+       <section id="galeria">
 
             <h2 data-section="galeria-titulo"></h2>
 
             <!-- Fotos de la banda -->
 
-    <h3 class="subtitulo-galeria">
-        La Banda
-    </h3>
+            <h3 class="subtitulo-galeria" data-section="galeria-banda"> La Banda </h3>
 
             <div class="galeria-grid">
-                <img src="assets/img/Foto1.jpeg" alt="Beatles One" loading="lazy">
-                <img src="assets/img/Foto2.jpeg" alt="Beatles One" loading="lazy">
-                <img src="assets/img/Foto3.jpeg" alt="Beatles One" loading="lazy">
-                <img src="assets/img/Foto4.jpeg" alt="Beatles One" loading="lazy">
-                <img src="assets/img/Foto5.jpeg" alt="Beatles One" loading="lazy">
-                <img src="assets/img/Foto6.jpeg" alt="Beatles One" loading="lazy">
+                <img src="assets/img/Foto1.jpeg" alt="Beatles One" data-caption="Beatles One en Inmigrantes MVD" data-caption-key="caption-foto1" loading="lazy">
+                <img src="assets/img/Foto2.jpeg" alt="Beatles One" data-caption="Beatles One en La Vaca Azul" data-caption-key="caption-foto2" loading="lazy">
+                <img src="assets/img/Foto3.jpeg" alt="Beatles One" data-caption="Beatles One representando a 🇺🇾 en Buenos Aires" data-caption-key="caption-foto3" loading="lazy">
+                <img src="assets/img/Foto4.jpeg" alt="Beatles One" data-caption="Beatles One" data-caption-key="caption-foto4" loading="lazy">
+                <img src="assets/img/Foto5.jpeg" alt="Beatles One" data-caption="Beatles One en Brickel" data-caption-key="caption-foto5" loading="lazy">
+                <img src="assets/img/Foto6.jpeg" alt="Beatles One" data-caption="Beatles One en The Shannon Irish Pub" data-caption-key="caption-foto6" loading="lazy">
             </div>
 
-            <!-- Sub sección Instrumentos -->
+            <!-- Sección Instrumentos -->
 
-    <h3 class="subtitulo-galeria2">
-        Instrumentos y Equipamiento
-    </h3>
+            <h3 class="subtitulo-galeria2" data-section="galeria-instrumentos"> Instrumentos y Equipamiento </h3>
 
-    <div class="galeria-grid">
-        <img src="assets/img//Instrumentos1.jpeg" alt="Instrumentos Beatles One" loading="lazy">
-        <img src="assets/img/Instrumentos2.jpeg" alt="Instrumentos Beatles One" loading="lazy">
-        <img src="assets/img/Instrumentos3.jpeg" alt="Instrumentos Beatles One" loading="lazy">
-        <img src="assets/img/Instrumentos4.jpeg" alt="Instrumentos Beatles One" loading="lazy">
-        <img src="assets/img/Instrumentos5.jpeg" alt="Instrumentos Beatles One" loading="lazy">
-        <img src="assets/img/Instrumentos6.jpg" alt="Instrumentos Beatles One" loading="lazy">
+            <div class="galeria-grid">
+                <img src="assets/img/Instrumentos1.jpeg" alt="Instrumentos Beatles One" data-caption="Instrumentos y equipamiento" loading="lazy">
+                <img src="assets/img/Instrumentos2.jpeg" alt="Instrumentos Beatles One" data-caption="Instrumentos y equipamiento" loading="lazy">
+                <img src="assets/img/Instrumentos3.jpeg" alt="Instrumentos Beatles One" data-caption="Instrumentos y equipamiento" loading="lazy">
+                <img src="assets/img/Instrumentos4.jpeg" alt="Instrumentos Beatles One" data-caption="Instrumentos y equipamiento" loading="lazy">
+                <img src="assets/img/Instrumentos5.jpeg" alt="Instrumentos Beatles One" data-caption="Instrumentos y equipamiento" loading="lazy">
+                <img src="assets/img/Instrumentos6.jpg" alt="Instrumentos Beatles One" data-caption="Instrumentos y equipamiento" loading="lazy">
+            </div>
+
+    <!-- Efecto para la galería de fotos -->
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-inner">
+            <img id="lightbox-img" src="" alt="">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
     </div>
-
-
 
         </section>
 
@@ -292,6 +335,14 @@
         </div>
 
     </footer>
+
+    <!-- Menú para celulares -->
+
+    <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <!-- Cargamos el script -->
 

@@ -28,8 +28,7 @@ html, body {
 body {
     font-family: 'Crimson Text', serif;
     font-style: normal;
-
-    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.80)), url('img/Fondo_1.jpg');
+    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.90)), url('img/Fondo_1.jpg');
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -191,7 +190,7 @@ main section.active {
     font-style: italic;
     color: var(--beige);
     text-align: center;
-    margin-top: -20px;
+    margin-top: -15px;
 }
 
 .hero-container {
@@ -334,7 +333,8 @@ main section.active {
 /* Inicio - P}róximo Show */
 
 .proximo-show-section {
-    margin: 60px auto;
+    margin-top: 100px;
+    margin-bottom: 150px;
     display: flex;
     justify-content: center;
 }
@@ -416,20 +416,22 @@ main section.active {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--verde);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8); 
+    border: 1px solid rgba(163, 217, 119, 0.3); 
     aspect-ratio: 16 / 9;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
+    background: #000;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .enhanced-player video {
     width: 100%;
     height: 100%;
     display: block;
-    background: #000;
     object-fit: cover;
+    filter: brightness(1.1);
 }
 
 .enhanced-player video::-webkit-media-controls-panel {
@@ -832,42 +834,346 @@ footer p {
 /* Formato para celulares */
 
 @media (max-width: 768px) {
-    header { flex-direction: column; align-items: stretch; }
+
+    header {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* Mostramos el botón hamburguesa */
     
-    nav ul { flex-direction: column; width: 100%; }
-    nav a.active-link { border-left: 4px solid var(--verde); margin-bottom: 0; }
-    
+    .hamburger {
+        display: flex;
+        order: 3;
+        margin-left: auto;
+    }
+
+    #cambiar-idioma {
+        order: 4;
+    }
+
+    /* El nav ocupa toda la fila y se oculta hasta que el menú esté abierto */
+
+    nav {
+        order: 5;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.35s ease;
+        flex: none;
+    }
+
+    nav.open {
+        max-height: 400px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 6px 0;
+        border-top: 1px solid var(--gris-oscuro);
+    }
+
+    nav a {
+        border-radius: 0;
+        margin: 0;
+        border: none;
+        border-left: 4px solid transparent;
+        padding: 12px 20px;
+    }
+
+    nav a:hover {
+        border-left-color: var(--verde);
+    }
+
+    nav a.active-link {
+        border-left: 4px solid var(--verde);
+        margin-bottom: 0;
+    }
+
     .hero {
         height: 350px;
-        margin-top: -10px;
+        margin-top: -20px;
     }
-    
+
     .hero-content img {
         max-width: 200px;
     }
-    
+
     .hero-content p {
         font-size: 1rem;
     }
-    
+
     .galeria-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
     }
-    
+
     .galeria-grid img {
         height: 200px;
     }
-    
-    .show-card { min-height: 80px; }
-    .show-date-box { min-width: 85px; font-size: 0.8rem; }
-    .show-actions { display: none; }
-    
+
+    .show-card {
+        min-height: 80px;
+    }
+
+    .show-date-box {
+        min-width: 85px;
+        font-size: 0.8rem;
+    }
+
+    .show-actions {
+        display: none;
+    }
+
     .enhanced-player {
         max-width: 100%;
         aspect-ratio: 16 / 9;
     }
-    
-    footer { flex-direction: column; gap: 15px; }
-    footer p { text-align: center; }
+
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    footer p {
+        text-align: center;
+    }
+
+}
+
+/* Botón hamburguesa - oculto en desktop */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--beige);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación al abrir */
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* Sección Redes Sociales */
+
+.redes-section {
+    margin-top: 80px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 0 20px;
+}
+
+.red-card {
+    flex: 1;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 28px;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 12px;
+    background: rgba(10, 10, 10, 0.4);
+    gap: 12px;
+}
+
+.red-titulo {
+    font-size: 1.4rem;
+    color: var(--beige);
+    letter-spacing: 1px;
+    font-family: "Playfair Display", serif;
+}
+
+.red-desc {
+    font-size: 1rem;
+    color: var(--gris-claro);
+    font-style: italic;
+    flex: 1;
+}
+
+.btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background-color: #ff0000;
+    color: var(--beige);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-youtube i {
+    font-size: 1.4rem;
+}
+
+.btn-youtube:hover {
+    background-color: transparent;
+    color: var(--verde);
+    border-color: var(--verde);
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgb(163, 217, 119));
+}
+
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: rgb(170, 110, 120);
+    color: var(--beige);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-instagram i {
+    font-size: 1.4rem;
+}
+
+.btn-instagram:hover {
+    background: transparent;
+    color: var(--verde);
+    border-color: var(--verde);
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgb(163, 217, 119));
+}
+
+/* Responsive: apilamos las cards en mobile */
+@media (max-width: 600px) {
+    .redes-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .red-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Lightbox de galería */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.93);
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.25s ease;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-inner img {
+    max-width: 85vw;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-caption {
+    color: var(--beige);
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 16px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    background: none;
+    border: none;
+    color: var(--beige);
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+    color: var(--verde);
+    transform: scale(1.2);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--verde);
+    color: var(--beige);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: var(--verde);
+    color: var(--negro);
 }

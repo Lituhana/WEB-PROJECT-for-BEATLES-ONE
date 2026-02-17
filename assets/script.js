@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Traemos las fechas de los shows desde Google Sheets
 
     const SHEET_ID = "1kXIlcUHinT3hFVhNkGWnevTdXQsVr4iGHd-AAgf-xd4";
-    const SHEET_NAME = "Hoja 1"; 
+    const SHEET_NAME = "Hoja 1";
     const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
-    
+
     let shows = [];
 
     // Traducciones al inglés
@@ -21,11 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-ver-todos": "Ver todos los shows",
             "logo-sub": "El tributo definitivo a los 4 de Liverpool",
             "video-sub": "Beatles One en Bs As (2025) - Long Tall Sally",
+            "youtube-titulo": "Miranos en YouTube",
+            "youtube-btn": "Ver canal",
+            "youtube-desc": "Videos de nuestros shows y ensayos",
+            "instagram-titulo": "Seguinos en Instagram",
+            "instagram-desc": "Fotos, historias y novedades de la banda",
+            "instagram-btn": "@beatles.one",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "El tributo a The Beatles de origen Uruguayo",
             "nosotros-piedefoto": "Beatles One participando de la 25° Beatleweek en The Cavern Club de Bs As - 2025",
             "nosotros-sobre": "Sobre Beatles One",
-            "nosotros-subtitulo": " Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, con más de 20 años de trayectoria interpretando la obra de The Beatles. Como creador y líder del proyecto, Camilo impulsa la banda con una visión clara: rendir homenaje al legado de Liverpool con respeto, calidad musical y una puesta en escena sólida.",
+            "nosotros-subtitulo": "Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, con más de 20 años de trayectoria interpretando la obra de The Beatles. Como creador y líder del proyecto, Camilo impulsa la banda con una visión clara: rendir homenaje al legado de Liverpool con respeto, calidad musical y una puesta en escena sólida.",
             "nosotros-descripcion": "El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club Buenos Aires en 2025.",
             "shows-titulo": "Próximos Shows",
             "shows-pasados-titulo": "Shows Anteriores",
@@ -41,6 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-send": "Enviar",
             "confirmacion-msg": "¡Mensaje enviado! Te responderemos a la brevedad.",
             "piedepagina": "© 2026 - Beatles One - Tributo Beatle",
+            "galeria-banda": "La Banda",
+            "galeria-instrumentos": "Instrumentos y Equipamiento",
+            "caption-foto1": "Beatles One en Inmigrantes MVD",
+            "caption-foto2": "Beatles One La Vaca Azul",
+            "caption-foto3": "Beatles One representando a 🇺🇾 en Buenos Aires",
+            "caption-foto4": "Beatles One",
+            "caption-foto5": "Beatles One en Brickel",
+            "caption-foto6": "Beatles One en The Shannon Irish Pub",
         },
 
         en: {
@@ -53,6 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-ver-todos": "See all shows",
             "logo-sub": "The ultimate tribute to the Fab Four",
             "video-sub": "Beatles One at Bs As (2025) - Long Tall Sally",
+            "youtube-titulo": "Watch us on YouTube",
+            "youtube-btn": "Visit channel",
+            "youtube-desc": "Videos from our shows and rehearsals",
+            "instagram-titulo": "Follow us on Instagram",
+            "instagram-desc": "Photos, stories and band updates",
+            "instagram-btn": "@beatles.one",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "The Uruguayan Beatles Tribute Band",
             "nosotros-piedefoto": "Beatles One performing at the 25th Beatleweek at The Cavern Club in Buenos Aires - 2025",
@@ -73,76 +93,79 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-send": "Send",
             "confirmacion-msg": "Message sent successfully! We'll get back to you soon.",
             "piedepagina": "© 2026 - Beatles One - Beatles Tribute",
+            "galeria-banda": "The Band",
+            "galeria-instrumentos": "Instruments & Equipment",
+            "caption-foto1": "Beatles One at Inmigrantes MVD",
+            "caption-foto2": "Beatles One at La Vaca Azul",
+            "caption-foto3": "Beatles One representing 🇺🇾 in Buenos Aires",
+            "caption-foto4": "Beatles One",
+            "caption-foto5": "Beatles One at Brickel",
+            "caption-foto6": "Beatles One at The Shannon Irish Pub",
         }
     };
 
-    // 3. Lógica de Pestañas
+    // Lógica de Pestañas
+
     const navLinks = document.querySelectorAll("nav a");
     const sections = document.querySelectorAll("main section");
+
+    const goToSection = (targetId) => {
+        sections.forEach(s => s.classList.remove("active"));
+        navLinks.forEach(l => l.classList.remove("active-link"));
+        document.getElementById(targetId).classList.add("active");
+        const activeLink = document.querySelector(`nav a[href="#${targetId}"]`);
+        if (activeLink) activeLink.classList.add("active-link");
+    };
 
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
             const targetId = link.getAttribute("href").substring(1);
-            
-            sections.forEach(s => s.classList.remove("active"));
-            navLinks.forEach(l => l.classList.remove("active-link"));
-            
-            document.getElementById(targetId).classList.add("active");
-            link.classList.add("active-link");
+            goToSection(targetId);
+            // Cierra el menú hamburguesa al navegar en mobile
+            closeHamburger();
         });
     });
 
-    // 4. Lógica de Idiomas - VERSIÓN CORREGIDA
+    // Lógica de Idiomas
+
     const changeLanguage = (lang) => {
-        // Traducir todos los elementos con data-section
         document.querySelectorAll("[data-section]").forEach(el => {
             const key = el.getAttribute("data-section");
             if (translations[lang][key]) {
                 el.innerHTML = translations[lang][key];
             }
         });
-        
+
         // Traducir placeholder del mensaje
         const mensajeTextarea = document.getElementById("mensaje");
         if (mensajeTextarea) {
             mensajeTextarea.placeholder = lang === "es" ? "Dejanos tu mensaje" : "Leave us your message";
         }
-        
-        // TRADUCCIÓN DIRECTA para los botones del overlay (por si no tienen data-section)
-        const btnProximoShow = document.querySelector('.btn-show-primary');
-        const btnVerTodos = document.querySelector('.btn-show-secondary');
-        
-        if (btnProximoShow) {
-            btnProximoShow.textContent = translations[lang]["btn-proximo-show"];
-        }
-        
-        if (btnVerTodos) {
-            btnVerTodos.textContent = translations[lang]["btn-ver-todos"];
-        }
-        
+
         document.documentElement.lang = lang;
-        renderShows(); 
+        renderShows();
     };
 
     document.getElementById("btn-es").addEventListener("click", () => changeLanguage("es"));
     document.getElementById("btn-en").addEventListener("click", () => changeLanguage("en"));
 
-    // 5. Cargar shows desde Google Sheets
+    // Cargar shows desde Google Sheets
+
     const loadShowsFromSheet = async () => {
         try {
             const response = await fetch(SHEET_URL);
             const text = await response.text();
-            
+
             const json = JSON.parse(text.substring(47).slice(0, -2));
             const rows = json.table.rows;
-            
+
             shows = rows.map(row => {
                 const cells = row.c;
                 if (!cells || !cells[0] || !cells[6] || cells[6].v.toUpperCase() !== "SI") {
                     return null;
                 }
-                
+
                 let rawDate = cells[0].v;
                 let fechaFinal;
 
@@ -162,19 +185,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     ciudad: cells[5] ? cells[5].v : ""
                 };
             }).filter(show => show !== null);
-            
+
             renderShows();
-            
+
         } catch (error) {
             console.error("Error al cargar shows:", error);
         }
     };
 
-    // 6. Renderizar Shows
+    // Renderizar Shows
+
     const renderShows = () => {
         const listaProximos = document.querySelector("#lista-shows-proximos");
         const listaPasados = document.querySelector("#lista-shows-pasados");
-        
+
         if (!listaProximos || !listaPasados) return;
 
         listaProximos.innerHTML = "";
@@ -193,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const crearLi = (show, esPasado) => {
             const li = document.createElement("li");
-            
+
             const dayName = new Intl.DateTimeFormat(idiomaActual, { weekday: 'short' }).format(show.fechaObjeto);
             const dayNum = new Intl.DateTimeFormat(idiomaActual, { day: '2-digit' }).format(show.fechaObjeto);
             const monthName = new Intl.DateTimeFormat(idiomaActual, { month: 'long' }).format(show.fechaObjeto);
@@ -205,10 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (esPasado) li.classList.add("pasado");
 
             // Mensaje de WhatsApp personalizado
-            const mensajeWhatsApp = idiomaActual === "es" 
+            const mensajeWhatsApp = idiomaActual === "es"
                 ? `Hola! Me interesa reservar para el show del ${dayNum} de ${monthName} en ${lugarActual}`
                 : `Hi! I'm interested in booking for the show on ${monthName} ${dayNum} at ${lugarActual}`;
-            
+
             const whatsappLink = `https://wa.me/59892660276?text=${encodeURIComponent(mensajeWhatsApp)}`;
 
             li.innerHTML = `
@@ -224,10 +248,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="show-actions">
-                    ${esPasado 
-                        ? `` 
-                        : (esEventoPrivado 
-                            ? "" 
+                    ${esPasado
+                        ? ``
+                        : (esEventoPrivado
+                            ? ""
                             : `<a href="${whatsappLink}" target="_blank" class="btn-ticket">${idiomaActual === "es" ? "RESERVAR" : "TICKETS"}</a>`
                           )
                     }
@@ -247,17 +271,27 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Click en logo vuelve a Inicio
+
     const logoLink = document.getElementById("logo-link");
     if (logoLink) {
         logoLink.addEventListener("click", (e) => {
             e.preventDefault();
-            const inicioLink = document.querySelector('nav a[href="#inicio"]');
-            if (inicioLink) inicioLink.click();
+            goToSection("inicio");
         });
     }
 
-    // 8. Carrusel de Videos
-    
+    // Botón "Ver todos los shows" redirige a #shows
+
+    const btnVerTodos = document.getElementById("btn-ver-todos");
+    if (btnVerTodos) {
+        btnVerTodos.addEventListener("click", (e) => {
+            e.preventDefault();
+            goToSection("shows");
+        });
+    }
+
+    // Carrusel de Videos
+
     const videos = [
         {
             src: "assets/VIDEOS/Video_1.mp4",
@@ -288,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const videoPlayer = document.getElementById("videoPlayer");
         const videoCaption = document.getElementById("videoCaption");
         const idiomaActual = document.documentElement.lang || "es";
-        
+
         videoPlayer.src = videos[currentVideoIndex].src;
         videoCaption.textContent = videos[currentVideoIndex].caption[idiomaActual];
         videoPlayer.load();
@@ -304,6 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updateVideo();
     });
 
+    // Formulario de Contacto
+
     const form = document.getElementById("contacto-formulario");
     const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
 
@@ -317,9 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const response = await fetch(form.action, {
                     method: "POST",
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
@@ -335,10 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     // Nos aseguramos de que quede en la sección contacto
-                    document.getElementById("contacto").classList.add("active");
-                    document.querySelectorAll("main section").forEach(s => {
-                        if (s.id !== "contacto") s.classList.remove("active");
-                    });
+                    goToSection("contacto");
                 }
 
             } catch (error) {
@@ -346,41 +377,118 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-    
-    // 7. Inicialización
+
+    // Hamburger Menu
+
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const navMenu = document.querySelector("nav");
+
+    const closeHamburger = () => {
+        hamburgerBtn.classList.remove("open");
+        navMenu.classList.remove("open");
+    };
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener("click", () => {
+            hamburgerBtn.classList.toggle("open");
+            navMenu.classList.toggle("open");
+        });
+    }
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener("click", (e) => {
+        if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+            closeHamburger();
+        }
+    });
+
+    // Lightbox de Galería
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const lightboxPrev = document.getElementById("lightbox-prev");
+    const lightboxNext = document.getElementById("lightbox-next");
+
+    let galeriaImagenes = [];
+    window._galeriaImagenes = galeriaImagenes;
+    let lightboxIndex = 0;
+    window._lightboxIndex = 0;
+
+    const getLightboxCaption = (index) => {
+        const img = galeriaImagenes[index];
+        const lang = document.documentElement.lang || "es";
+        if (img.captionKey && translations[lang][img.captionKey]) {
+            return translations[lang][img.captionKey];
+        }
+        return img.caption;
+    };
+
+    const openLightbox = (index) => {
+        lightboxIndex = index;
+        window._lightboxIndex = index;
+        lightboxImg.src = galeriaImagenes[index].src;
+        lightboxImg.alt = galeriaImagenes[index].alt;
+        lightboxCaption.textContent = getLightboxCaption(index);
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+    };
+
+    const showPrev = () => {
+        lightboxIndex = (lightboxIndex - 1 + galeriaImagenes.length) % galeriaImagenes.length;
+        window._lightboxIndex = lightboxIndex;
+        lightboxImg.src = galeriaImagenes[lightboxIndex].src;
+        lightboxCaption.textContent = getLightboxCaption(lightboxIndex);
+    };
+
+    const showNext = () => {
+        lightboxIndex = (lightboxIndex + 1) % galeriaImagenes.length;
+        window._lightboxIndex = lightboxIndex;
+        lightboxImg.src = galeriaImagenes[lightboxIndex].src;
+        lightboxCaption.textContent = getLightboxCaption(lightboxIndex);
+    };
+
+    // Recolectamos todas las imágenes de la galería
+    document.querySelectorAll(".galeria-grid img").forEach((img, i) => {
+        galeriaImagenes.push({
+            src: img.src,
+            alt: img.alt,
+            captionKey: img.getAttribute("data-caption-key") || null,
+            caption: img.getAttribute("data-caption") || img.alt
+        });
+
+        img.addEventListener("click", () => openLightbox(i));
+    });
+    window._galeriaImagenes = galeriaImagenes;
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrev.addEventListener("click", showPrev);
+    lightboxNext.addEventListener("click", showNext);
+
+    // Cerrar lightbox al hacer click fuera de la imagen
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Navegación con teclado en el lightbox
+    document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showPrev();
+        if (e.key === "ArrowRight") showNext();
+    });
+
+    // Inicialización
+
     loadShowsFromSheet();
-    
+
     const homeLink = document.querySelector('nav a[href="#inicio"]');
     if (homeLink) homeLink.classList.add("active-link");
 
-    // Hacer que el botón "Ver todos los shows" abra la pestaña "Proximos Shows"
-    const verTodosShowsBtn = document.querySelector('.btn-show-secondary[href="#contacto"]');
-    if (verTodosShowsBtn) {
-        verTodosShowsBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const showsNavLink = document.querySelector('nav a[href="#shows"]');
-            const showsSection = document.getElementById('shows');
-
-            const scrollToShows = () => {
-                const header = document.querySelector('header');
-                const headerHeight = header ? header.offsetHeight : 0;
-                const extraOffsetPx = 19;
-                if (showsSection) {
-                    const top = showsSection.getBoundingClientRect().top + window.scrollY - headerHeight - extraOffsetPx;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
-            };
-
-            if (showsNavLink) {
-                showsNavLink.click();
-                setTimeout(scrollToShows, 50);
-            } else {
-                if (showsSection) {
-                    document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
-                    showsSection.classList.add('active');
-                    setTimeout(scrollToShows, 10);
-                }
-            }
-        });
-    }
 });

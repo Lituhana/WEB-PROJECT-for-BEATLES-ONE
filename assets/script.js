@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "piedepagina": "© 2026 - Beatles One - Beatles Tribute",
             "galeria-banda": "The Band",
             "galeria-instrumentos": "Instruments & Equipment",
-            "caption-foto1": "Beatles One at Inmigrantes MVD",
+            "caption-foto1": "Beatles One at Inmigrantes MVS",
             "caption-foto2": "Beatles One at La Vaca Azul",
             "caption-foto3": "Beatles One representing 🇺🇾 in Buenos Aires",
             "caption-foto4": "Beatles One",
@@ -103,6 +103,30 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto6": "Beatles One at The Shannon Irish Pub",
         }
     };
+
+    // Hamburger Menu
+
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const navMenu = document.querySelector("nav");
+
+    const closeHamburger = () => {
+        hamburgerBtn.classList.remove("open");
+        navMenu.classList.remove("open");
+    };
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener("click", () => {
+            hamburgerBtn.classList.toggle("open");
+            navMenu.classList.toggle("open");
+        });
+    }
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener("click", (e) => {
+        if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+            closeHamburger();
+        }
+    });
 
     // Lógica de Pestañas
 
@@ -270,13 +294,20 @@ document.addEventListener("DOMContentLoaded", () => {
         pasados.forEach(s => listaPasados.appendChild(crearLi(s, true)));
     };
 
-    // Click en logo vuelve a Inicio
+    // Click en logo: en mobile abre/cierra el menú, en desktop va a Inicio
 
     const logoLink = document.getElementById("logo-link");
     if (logoLink) {
         logoLink.addEventListener("click", (e) => {
             e.preventDefault();
-            goToSection("inicio");
+            if (window.innerWidth <= 768) {
+                // Mobile: toggle hamburger menu
+                hamburgerBtn.classList.toggle("open");
+                navMenu.classList.toggle("open");
+            } else {
+                // Desktop: ir a inicio
+                goToSection("inicio");
+            }
         });
     }
 
@@ -377,30 +408,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    // Hamburger Menu
-
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const navMenu = document.querySelector("nav");
-
-    const closeHamburger = () => {
-        hamburgerBtn.classList.remove("open");
-        navMenu.classList.remove("open");
-    };
-
-    if (hamburgerBtn) {
-        hamburgerBtn.addEventListener("click", () => {
-            hamburgerBtn.classList.toggle("open");
-            navMenu.classList.toggle("open");
-        });
-    }
-
-    // Cerrar menú al hacer click fuera
-    document.addEventListener("click", (e) => {
-        if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
-            closeHamburger();
-        }
-    });
 
     // Lightbox de Galería
 

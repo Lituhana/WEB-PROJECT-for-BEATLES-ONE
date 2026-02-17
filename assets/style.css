@@ -28,7 +28,7 @@ html, body {
 body {
     font-family: 'Crimson Text', serif;
     font-style: normal;
-    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.90)), url('img/Fondo_1.jpg');
+    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.95)), url('img/Fondo_1.jpg');
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -312,42 +312,23 @@ main section.active {
     margin-bottom: 20px;
 }
 
-.btn-hero {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: var(--verde);
-    color: var(--negro);
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 5px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-
-.btn-hero:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 15px var(--verde));
-}
-
 /* Inicio - P}róximo Show */
 
 .proximo-show-section {
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 150px;
     display: flex;
     justify-content: center;
 }
 
 .proximo-show-card {
-    margin-bottom: 70px;
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     aspect-ratio: 2 / 1.6;
-    overflow: hidden;
+    overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--gris-oscuro);
     border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
 .proximo-show-img {
@@ -416,8 +397,8 @@ main section.active {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8); 
-    border: 1px solid rgba(163, 217, 119, 0.3); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--gris-oscuro);
     aspect-ratio: 16 / 9;
     width: 100%;
     max-width: 800px;
@@ -523,8 +504,8 @@ main section.active {
 }
 
 .carousel-btn {
-    background: var(--negro);
-    color: var(--beige);
+    background: transparent;
+    color: var(--verde);
     border: 2px solid var(--verde);
     width: 45px;
     height: 45px;
@@ -541,6 +522,7 @@ main section.active {
     background: var(--verde);
     color: var(--negro);
     transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #a3d977);    
 }
 
 /* Galería de fotos */
@@ -892,17 +874,48 @@ footer p {
     }
 
     .hero {
-        height: 350px;
-        margin-top: -20px;
-    }
+    height: min(56.25vw, 260px);
+    margin-top: -20px;
+}
 
-    .hero-content img {
-        max-width: 200px;
-    }
+.hero-content img {
+    max-width: 140px;
+    margin-top: -20px;
+}
 
-    .hero-content p {
-        font-size: 1rem;
-    }
+.hero-content p {
+    font-size: 0.85rem;
+}
+
+[data-section="logo-sub"] {
+    margin-top: -20px !important;
+    font-size: 1.1rem;
+}
+
+.overlay-buttons {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-proximo-show,.btn-ver-todos {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+}
+
+.redes-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+}
+
+.red-card {
+    width: 100%;
+    max-width: 100%;
+}
 
     .galeria-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -930,7 +943,11 @@ footer p {
         max-width: 100%;
         aspect-ratio: 16 / 9;
     }
-
+.carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+}
     .lightbox-prev { left: 8px; }
     .lightbox-next { right: 8px; }
 
@@ -1003,7 +1020,7 @@ footer p {
     padding: 32px 28px;
     border: 1px solid var(--gris-oscuro);
     border-radius: 12px;
-    background: rgba(10, 10, 10, 0.4);
+    background: rgba(10, 10, 10, 0.6);
     gap: 12px;
 }
 
@@ -1077,7 +1094,8 @@ footer p {
     filter: drop-shadow(0 0 12px rgb(163, 217, 119));
 }
 
-/* Responsive: apilamos las cards en mobile */
+/* Para celulares */
+
 @media (max-width: 600px) {
     .redes-section {
         flex-direction: column;
@@ -1150,8 +1168,7 @@ footer p {
     transform: scale(1.2);
 }
 
-.lightbox-prev,
-.lightbox-next {
+.lightbox-prev, .lightbox-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

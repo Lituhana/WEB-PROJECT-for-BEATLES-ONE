@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 
 /* Creamos variables de color para toda la página web */
@@ -28,8 +28,10 @@ html, body {
 body {
     font-family: 'Crimson Text', serif;
     font-style: normal;
-    color: #f0ead2;
-    background-color: var(--gris-oscuro);
+
+    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.80)), url('img/Fondo_1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -174,13 +176,14 @@ main section.active {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Formato para sección Inicio + Logo */
+/* Formato para sección Inicio - Logo */
 
 [data-section="logo-sub"] {
     font-size: 1.7rem;
-    color: var(--verde);
+    color: var(--beige);
     margin-top: -50px !important; 
     margin-bottom: 25px;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 [data-section="video-sub"] {
@@ -248,7 +251,7 @@ main section.active {
     border: none;
 }
 
-/* --- HERO VIDEO MEJORADO: ahora pegado al header y ancho completo --- */
+/* Inicio - Banner */
 
 .hero {
     position: relative;
@@ -257,22 +260,22 @@ main section.active {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    height: 500px;
+    height: min(56.25vw, 480px);
     overflow: hidden;
     margin-top: -20px;
     margin-bottom: 30px;
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
 }
 
 .hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center center;
     z-index: 1;
 }
 
@@ -282,7 +285,12 @@ main section.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.5) 60%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
     z-index: 2;
 }
 
@@ -301,6 +309,7 @@ main section.active {
 .hero-content img {
     max-width: 300px;
     width: 80%;
+    margin-top: -60px;
     margin-bottom: 20px;
 }
 
@@ -322,7 +331,7 @@ main section.active {
     filter: drop-shadow(0 0 15px var(--verde));
 }
 
-/* ================= PROXIMO SHOW ================= */
+/* Inicio - P}róximo Show */
 
 .proximo-show-section {
     margin: 60px auto;
@@ -331,6 +340,7 @@ main section.active {
 }
 
 .proximo-show-card {
+    margin-bottom: 70px;
     position: relative;
     width: 100%;
     max-width: 600px;
@@ -398,6 +408,37 @@ main section.active {
     border: 2px solid var(--gris-oscuro);
     transform: scale(1.1);
     filter: drop-shadow(0 0 15px #a3d977);
+}
+
+/* Formato para el Reproductor de Videos */
+
+.enhanced-player {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--verde);
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.enhanced-player video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #000;
+    object-fit: cover;
+}
+
+.enhanced-player video::-webkit-media-controls-panel {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.enhanced-player video::-webkit-media-controls-play-button,
+.enhanced-player video::-webkit-media-controls-mute-button {
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
 }
 
 /* Formato para sección Nosotros */
@@ -469,84 +510,7 @@ main section.active {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* --- REPRODUCTOR DE VIDEO MEJORADO (VERSIÓN ÚNICA) --- */
-.enhanced-player {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--verde);
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.enhanced-player video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    background: #000;
-    object-fit: cover;
-}
-
-.enhanced-player video::-webkit-media-controls-panel {
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-}
-
-.enhanced-player video::-webkit-media-controls-play-button,
-.enhanced-player video::-webkit-media-controls-mute-button {
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
-}
-
-/* --- GALERÍA DE FOTOS CORREGIDA Y OPTIMIZADA --- */
-
-#galeria {
-    margin-top: 30px;
-    text-align: center;
-    padding: 20px 0;
-}
-
-/* Ocultamos el título vacío */
-#galeria h2[data-section="galeria-titulo"] {
-    display: none;
-}
-
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 15px;
-}
-
-.galeria-grid img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    border: 3px solid transparent;
-    background-color: var(--gris-oscuro); /* Fondo mientras carga */
-}
-
-.galeria-grid img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 30px rgba(163, 217, 119, 0.3);
-    border-color: var(--verde);
-}
-
-.subtitulo-galeria {
-    margin: 60px 0 30px;
-    text-align: center;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-/* --- CAROUSEL BUTTONS MEJORADOS --- */
+/* Carrusel de videos */
 
 .carousel-container {
     display: flex;
@@ -577,7 +541,58 @@ main section.active {
     transform: scale(1.1);
 }
 
+/* Galería de fotos */
+
+#galeria {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.subtitulo-galeria {
+    color: var(--beige);
+    margin: -30px 0 30px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.subtitulo-galeria2 {
+    color: var(--beige);
+    margin: 30px 0 30px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(163, 217, 119, 0.3);
+    border-color: var(--verde);
+}
+
 /* Formato para Shows */
+
 #shows h2 {
     font-size: 1.7rem;
     color: var(--beige);
@@ -715,6 +730,7 @@ main section.active {
 }
 
 /* Formato para Contacto */
+
 #contacto {
     max-width: 600px;
     margin: 0 auto;
@@ -779,9 +795,10 @@ main section.active {
 }
 
 /* Formato del Pie de Página */
+
 footer {
     background-color: var(--negro) !important;
-    color: var(--blanco);
+    color: var(--beige);
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -812,7 +829,8 @@ footer p {
     filter: drop-shadow(0 0 15px #a3d977);
 }
 
-/* Formato para dispositivos móviles */
+/* Formato para celulares */
+
 @media (max-width: 768px) {
     header { flex-direction: column; align-items: stretch; }
     

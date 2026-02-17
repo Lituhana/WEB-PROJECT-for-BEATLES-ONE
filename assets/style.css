@@ -324,7 +324,7 @@ main section.active {
 .proximo-show-card {
     position: relative;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     aspect-ratio: 2 / 1.6;
     overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     border: 2px solid var(--gris-oscuro);

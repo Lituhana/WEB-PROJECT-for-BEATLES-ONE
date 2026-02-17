@@ -50,11 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "galeria-banda": "La Banda",
             "galeria-instrumentos": "Instrumentos y Equipamiento",
             "caption-foto1": "Beatles One en Inmigrantes MVD",
-            "caption-foto2": "Beatles One La Vaca Azul",
+            "caption-foto2": "Beatles One en La Vaca Azul",
             "caption-foto3": "Beatles One representando a 🇺🇾 en Buenos Aires",
             "caption-foto4": "Beatles One",
             "caption-foto5": "Beatles One en Brickel",
             "caption-foto6": "Beatles One en The Shannon Irish Pub",
+            "caption-instrumentos-1": "Paperback writer set",
+            "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
+            "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
+            "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
+            "caption-instrumentos-5": "Las Casinos de John",
+            "caption-instrumentos-6": "Las Rickenbacker de John"
         },
 
         en: {
@@ -101,6 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto4": "Beatles One",
             "caption-foto5": "Beatles One at Brickel",
             "caption-foto6": "Beatles One at The Shannon Irish Pub",
+            "caption-instrumentos-1": "Paperback writer set",
+            "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
+            "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
+            "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
+            "caption-instrumentos-5": "Las Casinos de John",
+            "caption-instrumentos-6": "Las Rickenbacker de John"
         }
     };
 
@@ -296,20 +308,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click en logo: en mobile abre/cierra el menú, en desktop va a Inicio
 
-    const logoLink = document.getElementById("logo-link");
-    if (logoLink) {
-        logoLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            if (window.innerWidth <= 768) {
-                // Mobile: toggle hamburger menu
-                hamburgerBtn.classList.toggle("open");
-                navMenu.classList.toggle("open");
-            } else {
-                // Desktop: ir a inicio
-                goToSection("inicio");
-            }
-        });
-    }
+const logoLink = document.getElementById("logo-link");
+if (logoLink) {
+    logoLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // evita que el click se propague al document y cierre el menú
+        if (window.innerWidth <= 768) {
+            hamburgerBtn.classList.toggle("open");
+            navMenu.classList.toggle("open");
+        } else {
+            goToSection("inicio");
+        }
+    });
+}
 
     // Botón "Ver todos los shows" redirige a #shows
 

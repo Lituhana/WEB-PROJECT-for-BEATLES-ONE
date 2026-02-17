@@ -6,127 +6,150 @@
     <title> Beatles One 🇺🇾 </title>
     <link rel="stylesheet" href="assets/style.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Agregamos Font Awesome para iconos del reproductor -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+ <body>
+
     <header>
-    <div class="header-left">
-        <a href="#inicio" id="logo-link">
-            <img src="assets/img/Logo_BO.png" alt="Beatles One Logo" class="header-logo">
-        </a>
-    </div>
 
-    <nav> 
+        <!-- Creamos un logo que nos redirija al Inicio -->
 
-        <!-- Creamos la barra de navegación con pestañas -->
-
-        <ul>
-            <li><a href="#inicio" data-section="inicio"> Inicio </a></li>
-            <li><a href="#nosotros" data-section="nosotros"> ¿Quiénes somos? </a></li>
-            <li><a href="#galeria" data-section="galeria"> Galería </a></li>
-            <li><a href="#shows" data-section="shows"> Próximos Shows </a></li>
-            <li><a href="#contacto" data-section="contacto"> Contacto </a></li>
-        </ul>
-    </nav>
-
-    <!-- Creamos un selector de idioma -->
-
-    <div id="cambiar-idioma"> 
-        <button id="btn-es" title="Español">🇪🇸</button>
-        <button id="btn-en" title="English">🇬🇧</button>
-    </div>
-</header>
-
-<main> 
-
-    <!-- Detallamos que va dentro de cada seccion de la nav -->
-
-<section id="inicio" class="active">
-
-    <!-- HERO - BANNER VIDEO MODIFICADO: ahora pegado al header y ancho completo -->
-
-    <div class="hero">
-        <video autoplay muted loop class="hero-video" playsinline>
-            <source src="assets/VIDEOS/BO_1.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-        </video>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <img src="assets/img/Logo_BO.png" alt="Beatles One Logo" class="hero-logo">
-            <p data-section="logo-sub">
-                El tributo definitivo a los 4 de Liverpool
-            </p>
-        </div>
-    </div>
-
-    <!-- PROXIMO SHOW CON IMAGEN -->
-
-<div class="proximo-show-section">
-
-    <div class="proximo-show-card">
-
-        <img src="assets/img/Hard_Rock.jpeg" 
-             alt="Próximo Show - Beatles One" 
-             class="proximo-show-img">
-
-        <div class="proximo-show-overlay">
-
-            <div class="overlay-buttons">
-                <a href="https://www.instagram.com/beatles.one" class="btn-proximo-show" target="_blank" rel="noopener noreferrer" data-section="btn-proximo-show">
-                    Próximo Show
-                </a>
-                <a href="#contacto" class="btn-ver-todos" data-section="btn-ver-todos">  
-                    Ver todos los shows
-                </a>
-            </div>
+        <div class="header-left">
+            <a href="#inicio" id="logo-link">
+                <img src="assets/img/Logo_BO.png" alt="Beatles One Logo" class="header-logo">
+            </a>
         </div>
 
-    </div>
+        <nav>
 
-</div>
+            <!-- Creamos la barra de navegación con pestañas -->
 
-    <!-- GALERIA de VIDEOS - REPRODUCTOR MEJORADO -->
+            <ul>
+                <li><a href="#inicio" data-section="inicio"> Inicio </a></li>
+                <li><a href="#nosotros" data-section="nosotros"> ¿Quiénes somos? </a></li>
+                <li><a href="#galeria" data-section="galeria"> Galería </a></li>
+                <li><a href="#shows" data-section="shows"> Próximos Shows </a></li>
+                <li><a href="#contacto" data-section="contacto"> Contacto </a></li>
+            </ul>
 
-    <div class="inicio-contenido">
+        </nav>
 
-        <div class="carousel-container">
-            <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            
-            <div class="container-video enhanced-player">
-                <video controls id="videoPlayer" poster="assets/img/video-poster.jpg">
-                    <source src="assets/VIDEOS/Video_1.mp4" type="video/mp4">
-                    <source src="assets/VIDEOS/Video_2.mp4" type="video/mp4">
-                    <source src="assets/VIDEOS/Video_3.mp4" type="video/mp4">
+        <!-- Creamos un selector de idioma -->
+
+        <div id="cambiar-idioma">
+            <button id="btn-es" title="Español">🇪🇸</button>
+            <button id="btn-en" title="English">🇬🇧</button>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- Detallamos que va dentro de cada seccion de la nav (Cada pestaña) -->
+
+        <section id="inicio" class="active">
+
+            <!-- Banner con video de la banda -->
+
+            <div class="hero">
+                <video autoplay muted loop class="hero-video" playsinline>
+                    <source src="assets/VIDEOS/BO_1.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
                 </video>
+
+                <div class="hero-overlay"></div>
+
+                <div class="hero-content">
+                    <img src="assets/img/Logo_BO.png" alt="Beatles One Logo" class="hero-logo">
+                    <p data-section="logo-sub">
+                        El tributo definitivo a los 4 de Liverpool
+                    </p>
+                </div>
             </div>
-            
-            <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-        </div>
 
-        <p data-section="video-sub" id="videoCaption">
-            Beatles One en Bs As (2025) - Long Tall Sally
-        </p>
+            <!-- Próximo Show -->
 
-    </div>
+            <div class="proximo-show-section">
 
-</section>
+                <div class="proximo-show-card">
+
+                    <img src="assets/img/Hard_Rock.jpeg"
+                         alt="Próximo Show - Beatles One"
+                         class="proximo-show-img">
+
+                    <div class="proximo-show-overlay">
+
+                        <div class="overlay-buttons">
+                            <a href="https://www.instagram.com/beatles.one"
+                               class="btn-proximo-show"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               data-section="btn-proximo-show">
+                                Próximo Show
+                            </a>
+
+                            <a href="#contacto"
+                               class="btn-ver-todos"
+                               data-section="btn-ver-todos">
+                                Ver todos los shows
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Pestaña Inicio -->
+
+            <div class="inicio-contenido">
+
+                <div class="carousel-container">
+
+                    <button class="carousel-btn prev" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="container-video enhanced-player">
+                        <video controls id="videoPlayer" poster="assets/img/video-poster.jpg">
+                            <source src="assets/VIDEOS/Video_1.mp4" type="video/mp4">
+                            <source src="assets/VIDEOS/Video_2.mp4" type="video/mp4">
+                            <source src="assets/VIDEOS/Video_3.mp4" type="video/mp4">
+                            Tu navegador no soporta el video.
+                        </video>
+                    </div>
+
+                    <button class="carousel-btn next" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+                <p data-section="video-sub" id="videoCaption">
+                    Beatles One en Bs As (2025) - Long Tall Sally
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Pestaña ¿Quiénes somos? -->
 
         <section id="nosotros">
-            <h1 data-section="nosotros-titulo_1"> 
+
+            <h1 data-section="nosotros-titulo_1">
                 Beatles One
             </h1>
-            <h1 data-section="nosotros-titulo_2"> 
+
+            <h1 data-section="nosotros-titulo_2">
                 El tributo a The Beatles de origen Uruguayo
             </h1>
 
-            <img src="assets/img/Beatles_One_Beatleweek.png" alt= "Beatles One Beatle week" >
+            <img src="assets/img/Beatles_One_Beatleweek.png" alt="Beatles One Beatle week">
 
-            <p data-section="nosotros-piedefoto"> 
+            <p data-section="nosotros-piedefoto">
                 Beatles One participando de la 25ª Beatleweek en The Cavern Club de Bs As - 2025
             </p>
 
@@ -135,101 +158,144 @@
             </h2>
 
             <h3 data-section="nosotros-subtitulo">
-                    Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, con más de 20 años de trayectoria interpretando la obra de The Beatles. Como creador y líder del proyecto, Camilo impulsa la banda con una visión clara: rendir homenaje al legado de Liverpool con respeto, calidad musical y una puesta en escena sólida.
+                Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, con más de 20 años de trayectoria interpretando la obra de The Beatles. Como creador y líder del proyecto, Camilo impulsa la banda con una visión clara: rendir homenaje al legado de Liverpool con respeto, calidad musical y una puesta en escena sólida.
             </h3>
-            
+
             <p data-section="nosotros-descripcion">
-                El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club Buenos Aires en 2025.
+                El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club de Buenos Aires en 2025.
             </p>
 
         </section>
 
+        <!-- Pestaña con la Galería de Fotos -->
+
         <section id="galeria">
-            <!-- Agregamos un título para la galería -->
 
             <h2 data-section="galeria-titulo"></h2>
+
+            <!-- Fotos de la banda -->
+
+    <h3 class="subtitulo-galeria">
+        La Banda
+    </h3>
+
             <div class="galeria-grid">
-                <img src="assets/img/Foto1.png" alt="Beatles One" loading="lazy">
+                <img src="assets/img/Foto1.jpeg" alt="Beatles One" loading="lazy">
                 <img src="assets/img/Foto2.jpeg" alt="Beatles One" loading="lazy">
                 <img src="assets/img/Foto3.jpeg" alt="Beatles One" loading="lazy">
-                <img src="assets/img/Foto4.png" alt="Beatles One" loading="lazy">
+                <img src="assets/img/Foto4.jpeg" alt="Beatles One" loading="lazy">
                 <img src="assets/img/Foto5.jpeg" alt="Beatles One" loading="lazy">
                 <img src="assets/img/Foto6.jpeg" alt="Beatles One" loading="lazy">
             </div>
-            
+
+            <!-- Sub sección Instrumentos -->
+
+    <h3 class="subtitulo-galeria">
+        Instrumentos y Equipamiento
+    </h3>
+
+    <div class="galeria-grid">
+        <img src="assets/img//Instrumentos1.jpeg" alt="Instrumentos Beatles One" loading="lazy">
+        <img src="assets/img/Instrumentos2.jpeg" alt="Instrumentos Beatles One" loading="lazy">
+        <img src="assets/img/Instrumentos3.jpeg" alt="Instrumentos Beatles One" loading="lazy">
+        <img src="assets/img/Instrumentos4.jpeg" alt="Instrumentos Beatles One" loading="lazy">
+        <img src="assets/img/Instrumentos5.jpeg" alt="Instrumentos Beatles One" loading="lazy">
+        <img src="assets/img/Instrumentos6.jpg" alt="Instrumentos Beatles One" loading="lazy">
+    </div>
+
+
+
         </section>
 
+        <!-- Pestaña con los Shows -->
+
         <section id="shows">
+
             <h2 data-section="shows-titulo"> Próximos Shows </h2>
             <ul id="lista-shows-proximos"></ul>
 
             <h3 data-section="shows-pasados-titulo"> Shows Anteriores </h3>
-            <ul id="lista-shows-pasados"></ul> 
+            <ul id="lista-shows-pasados"></ul>
+
         </section>
 
-         <!-- Creamos los campos del formulario de contacto -->
+        <!-- Pestaña con el formulario de Contacto -->
 
-  <section id="contacto">
-    <h2 data-section="contacto-titulo"> Ponete en contacto </h2>
-    
+        <section id="contacto">
 
-    <div id="mensaje-confirmacion" style="display: none;">
-        <p data-section="confirmacion-msg">
-           ¡Mensaje enviado! Te responderemos a la brevedad.
-        </p>
-    </div>
-    
-    <form id="contacto-formulario" action="https://formsubmit.co/ajax/beatles.one.band@gmail.com" method="POST">
-        
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde Beatles One">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        
-        <div class="form-group">
-            <label for="motivo" data-section="label-reason"> Motivo: </label>
-            <select id="motivo" name="motivo" required>
-                <option value="contrataciones" data-section="opt-contrataciones"> Contrataciones </option>
-                <option value="consultas" data-section="opt-consultas"> Consultas </option>
-                <option value="otros" data-section="opt-otros"> Otros </option>
-            </select>
-        </div>
+            <h2 data-section="contacto-titulo"> Ponete en contacto </h2>
 
-        <div class="form-group">
-            <label for="nombre" data-section="label-name"> Nombre: </label>
-            <input type="text" id="nombre" name="nombre" placeholder="Paul McCartney" required>
-        </div>
+            <div id="mensaje-confirmacion" style="display: none;">
+                <p data-section="confirmacion-msg">
+                    ¡Mensaje enviado! Te responderemos a la brevedad.
+                </p>
+            </div>
 
-        <div class="form-group">
-            <label for="email" data-section="label-email"> Correo: </label>
-            <input type="email" id="email" name="email" placeholder="John@apple.com" required>
-        </div>
+            <form id="contacto-formulario"
+                  action="https://formsubmit.co/ajax/beatles.one.band@gmail.com"
+                  method="POST">
 
-        <div class="form-group">
-            <label for="mensaje" data-section="label-msg"> Mensaje: </label>
-            <textarea id="mensaje" name="mensaje" placeholder="Dejanos tu mensaje" rows="4" required></textarea>
-        </div>
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde Beatles One">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
 
-        <button type="submit" id="btn-enviar" data-section="btn-send"> Enviar </button>
-    </form>
-  </section>
-</main>
+                <!-- Creamos los campos del formulario de Contacto -->
 
-  <footer>  
+                <div class="form-group">
+                    <label for="motivo" data-section="label-reason"> Motivo: </label>
+                    <select id="motivo" name="motivo" required>
+                        <option value="contrataciones" data-section="opt-contrataciones"> Contrataciones </option>
+                        <option value="consultas" data-section="opt-consultas"> Consultas </option>
+                        <option value="otros" data-section="opt-otros"> Otros </option>
+                    </select>
+                </div>
 
-    <!-- Creamos un pie de página con las redes de la banda -->
+                <div class="form-group">
+                    <label for="nombre" data-section="label-name"> Nombre: </label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Paul McCartney" required>
+                </div>
 
-    <p data-section="piedepagina"> © 2026 - Beatles One - Tributo Beatle </p> 
+                <div class="form-group">
+                    <label for="email" data-section="label-email"> Correo: </label>
+                    <input type="email" id="email" name="email" placeholder="John@apple.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje" data-section="label-msg"> Mensaje: </label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Dejanos tu mensaje" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" id="btn-enviar" data-section="btn-send"> Enviar </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <!-- Creamos un pie de página con las redes de la banda -->
+
+        <p data-section="piedepagina"> © 2026 - Beatles One - Tributo Beatle </p>
+
         <div class="redes">
-            <a href="https://www.instagram.com/beatles.one" target="_blank"><img src="assets/img/instagram.png" alt="instagram"></a>
-            <a href="https://www.facebook.com/beatlesone" target="_blank"><img src="assets/img/facebook.png" alt="facebook"></a>
-            <a href="https://www.youtube.com/@beatlesone" target="_blank"><img src="assets/img/youtube.png" alt="youtube"></a>
+            <a href="https://www.instagram.com/beatles.one" target="_blank">
+                <img src="assets/img/instagram.png" alt="instagram">
+            </a>
+            <a href="https://www.facebook.com/beatlesone" target="_blank">
+                <img src="assets/img/facebook.png" alt="facebook">
+            </a>
+            <a href="https://www.youtube.com/@beatlesone" target="_blank">
+                <img src="assets/img/youtube.png" alt="youtube">
+            </a>
         </div>
 
-  </footer>
-  
-         <!-- Cargamos el script -->
+    </footer>
 
-      <script src="assets/script.js"></script>
+    <!-- Cargamos el script -->
+
+    <script src="assets/script.js"></script>
 
  </body>
 </html>

@@ -33,6 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
 }
 
 h1, h2, .hero-title {
@@ -498,7 +499,8 @@ main section.active {
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
 }
 
-/* --- GALERÍA DE FOTOS CORREGIDA Y OPTIMIZADA (SIN TÍTULO) --- */
+/* --- GALERÍA DE FOTOS CORREGIDA Y OPTIMIZADA --- */
+
 #galeria {
     margin-top: 30px;
     text-align: center;
@@ -537,7 +539,15 @@ main section.active {
     border-color: var(--verde);
 }
 
+.subtitulo-galeria {
+    margin: 60px 0 30px;
+    text-align: center;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
 /* --- CAROUSEL BUTTONS MEJORADOS --- */
+
 .carousel-container {
     display: flex;
     align-items: center;

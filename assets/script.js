@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-ver-todos": "Ver todos los shows",
             "logo-sub": "El tributo definitivo a los 4 de Liverpool",
             "video-sub": "Beatles One en Bs As (2025) - Long Tall Sally",
-            "youtube-titulo": "Miranos en YouTube",
+            "youtube-titulo": "Nuestro canal de YouTube",
             "youtube-btn": "Ver canal",
             "youtube-desc": "Videos de nuestros shows y ensayos",
             "instagram-titulo": "Seguinos en Instagram",
@@ -60,7 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
             "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
             "caption-instrumentos-5": "Las Casinos de John",
-            "caption-instrumentos-6": "Las Rickenbacker de John"
+            "caption-instrumentos-6": "Las Rickenbacker de John",
+            "galeria-eventos-privados": "Eventros Privados",
+            "caption-evento1": "Cumpleaños n°80 de Jesús",
         },
 
         en: {
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-ver-todos": "See all shows",
             "logo-sub": "The ultimate tribute to the Fab Four",
             "video-sub": "Beatles One at Bs As (2025) - Long Tall Sally",
-            "youtube-titulo": "Watch us on YouTube",
+            "youtube-titulo": "Our YouTube channel",
             "youtube-btn": "Visit channel",
             "youtube-desc": "Videos from our shows and rehearsals",
             "instagram-titulo": "Follow us on Instagram",
@@ -112,7 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-3": "Ludwig drum kit at Q'Atrevido",
             "caption-instrumentos-4": "Full setup at The Shannon Irish Pub",
             "caption-instrumentos-5": "John's Casino guitars",
-            "caption-instrumentos-6": "John's Rickenbacker guitars"
+            "caption-instrumentos-6": "John's Rickenbacker guitars",
+            "galeria-eventos-privados": "Private Events",
+            "caption-evento1": "Jesús' 80th Birthday",
         }
     };
 

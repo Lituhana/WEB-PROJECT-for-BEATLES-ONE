@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto4": "Beatles One",
             "caption-foto5": "Beatles One en Brickel",
             "caption-foto6": "Beatles One en The Shannon Irish Pub",
-            "caption-instrumentos-1": "Paperback writer set",
+            "caption-instrumentos-1": "Paperback Witer set",
             "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
             "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto4": "Beatles One",
             "caption-foto5": "Beatles One at Brickel",
             "caption-foto6": "Beatles One at The Shannon Irish Pub",
-            "caption-instrumentos-1": "Paperback writer set",
-            "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
-            "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
-            "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
-            "caption-instrumentos-5": "Las Casinos de John",
-            "caption-instrumentos-6": "Las Rickenbacker de John"
+            "caption-instrumentos-1": "Paperback Writer set",
+            "caption-instrumentos-2": "Backline at Inmigrantes MVD",
+            "caption-instrumentos-3": "Ludwig drum kit at Q'Atrevido",
+            "caption-instrumentos-4": "Full setup at The Shannon Irish Pub",
+            "caption-instrumentos-5": "John's Casino guitars",
+            "caption-instrumentos-6": "John's Rickenbacker guitars"
         }
     };
 

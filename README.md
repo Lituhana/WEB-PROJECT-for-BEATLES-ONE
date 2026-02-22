@@ -58,8 +58,3 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
 ## 👩‍💻 Development Context
 
 This project was developed as a real website and portfolio project, applying front-end fundamentals and QA mindset for layout validation, visual consistency and user experience testing.
-
----
-
-## ©️ Author
-- Ana Osaba - February 2026

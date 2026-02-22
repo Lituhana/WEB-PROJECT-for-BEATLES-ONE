@@ -62,9 +62,13 @@
             <!-- Banner con video de la banda -->
 
             <div class="hero">
-                <video autoplay muted loop class="hero-video" playsinline> <source src="assets/VIDEOS/BO_1.mp4" type="video/mp4">
-                    Tu navegador no soporta el video.
-                </video>
+                <iframe 
+                    class="hero-video"
+                    src="https://www.youtube.com/embed/fyf5DDvuBwk?autoplay=1&mute=1&controls=0&loop=1&playlist=fyf5DDvuBwk&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
 
                 <div class="hero-overlay"></div>
 
@@ -119,10 +123,13 @@
                     </button>
 
                     <div class="container-video enhanced-player">
-                        <video controls id="videoPlayer" poster="assets/img/video-poster.jpg">
-                            <source src="assets/VIDEOS/Video_1.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
+                        <iframe 
+                            id="videoPlayer" 
+                            src="https://www.youtube.com/embed/Y8B3lvZbFNI?rel=0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
 
                     <button class="carousel-btn next" id="nextBtn">

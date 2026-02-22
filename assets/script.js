@@ -338,51 +338,57 @@ if (enlaceLogo) {
 
     // Carrusel de Videos
 
-    const videos = [
-        {
-            src: "assets/VIDEOS/Video_1.mp4",
-            caption: {
-                es: "Beatles One en Bs As (2025) - Long Tall Sally",
-                en: "Beatles One at Bs As (2025) - Long Tall Sally"
-            }
+    const videoList = [
+        { 
+            id: "Y8B3lvZbFNI", 
+            caption: { 
+                es: "Beatles One en Bs As (2025) - Long Tall Sally", 
+                en: "Beatles One at Bs As (2025) - Long Tall Sally" 
+            } 
         },
-        {
-            src: "assets/VIDEOS/Video_2.mp4",
-            caption: {
-                es: "Beatles One en Bs As (2025) - Hey Jude",
-                en: "Beatles One at Bs As (2025) - Hey Jude"
-            }
+        { 
+            id: "VFZUN_kkXN4", 
+            caption: { 
+                es: "Beatles One en Bs As (2025) - Hey Jude", 
+                en: "Beatles One at Bs As (2025) - Hey Jude" 
+            } 
         },
-        {
-            src: "assets/VIDEOS/Video_3.mp4",
-            caption: {
-                es: "Beatles One en La Vaca Azul (2025) - I wanna be your man",
-                en: "Beatles One at La Vaca Azul (2025) - I wanna be your man"
-            }
+        { 
+            id: "a6QXL1KX8AA", 
+            caption: { 
+                es: "Beatles One en La Vaca Azul - I Wanna Be Your Man", 
+                en: "Beatles One at La Vaca Azul - I Wanna Be Your Man" 
+            } 
         }
     ];
 
-    let indiceVideoActual = 0;
+    let currentVideoIndex = 0;
+    const videoPlayer = document.getElementById("videoPlayer");
+    const videoCaption = document.getElementById("videoCaption");
 
-    const actualizarVideo = () => {
-        const reproductorVideo = document.getElementById("videoPlayer");
-        const epigrafVideo = document.getElementById("videoCaption");
+    const updateVideo = () => {
         const idiomaActual = document.documentElement.lang || "es";
 
-        reproductorVideo.src = videos[indiceVideoActual].src;
-        epigrafVideo.textContent = videos[indiceVideoActual].caption[idiomaActual];
-        reproductorVideo.load();
+        // Cambiamos el src del iframe con el ID de YouTube
+
+        videoPlayer.src = `https://www.youtube.com/embed/${videoList[currentVideoIndex].id}?rel=0`;
+        videoCaption.textContent = videoList[currentVideoIndex].caption[idiomaActual];
     };
 
-    document.getElementById("prevBtn").addEventListener("click", () => {
-        indiceVideoActual = (indiceVideoActual - 1 + videos.length) % videos.length;
-        actualizarVideo();
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        updateVideo();
     });
 
-    document.getElementById("nextBtn").addEventListener("click", () => {
-        indiceVideoActual = (indiceVideoActual + 1) % videos.length;
-        actualizarVideo();
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        currentVideoIndex = (currentVideoIndex - 1 + videoList.length) % videoList.length;
+        updateVideo();
     });
+
+    // Actualizar texto del video cuando se cambia el idioma
+
+    document.getElementById("btn-es").addEventListener("click", updateVideo);
+    document.getElementById("btn-en").addEventListener("click", updateVideo);
 
     // Formulario de Contacto
 

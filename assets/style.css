@@ -1,4 +1,6 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
+﻿/* Importamos fuentes para la página web */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 
 /* Creamos variables de color para toda la página web */
@@ -175,22 +177,22 @@ main section.active {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Formato para sección Inicio - Logo */
+/* Formato para sección Inicio + Logo */
 
 [data-section="logo-sub"] {
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: var(--beige);
     margin-top: -50px !important; 
     margin-bottom: 25px;
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 0 20px rgb(255, 255, 255);
 }
 
 [data-section="video-sub"] {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-style: italic;
     color: var(--beige);
     text-align: center;
-    margin-top: -15px;
+    margin-top: -10px;
 }
 
 .hero-container {
@@ -284,12 +286,7 @@ main section.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 60%,
-        rgba(0, 0, 0, 0.85) 100%
-    );
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.85) 100%);
     z-index: 2;
 }
 
@@ -419,8 +416,7 @@ main section.active {
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.enhanced-player video::-webkit-media-controls-play-button,
-.enhanced-player video::-webkit-media-controls-mute-button {
+.enhanced-player video::-webkit-media-controls-play-button, .enhanced-player video::-webkit-media-controls-mute-button {
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
 }
 
@@ -694,23 +690,20 @@ main section.active {
 }
 
 .btn-ticket {
-    padding: 8px 18px;
-    border: 2px solid var(--negro);
-    border-radius: 4px;
+    padding: 8px 14px;
     text-decoration: none;
-    color: var(--negro) !important;
     font-weight: 600;
-    font-size: 0.85rem;
-    font-family: 'Crimson Text', serif;
-    text-transform: uppercase;
+    font-size: 2.5rem;
     background-color: transparent;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    color: #25D366 !important;
 }
 
 .btn-ticket:hover {
-    background-color: var(--negro);
-    color: var(--beige) !important;
-    filter: drop-shadow(0 0 15px #a3d977);
+    color: var(--blanco) !important;
+    filter: drop-shadow(0 0 8px #25D366);
 }
 
 /* Formato para Contacto */
@@ -776,6 +769,18 @@ main section.active {
     color: var(--verde);
     transform: translateY(-2px);
     filter: drop-shadow(0 0 15px #a3d977);
+}
+
+#mensaje-confirmacion {
+    background-color: rgba(163, 217, 119, 0.2); 
+    border: 1px solid var(--verde);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--verde);
+    font-weight: bold;
 }
 
 /* Formato del Pie de Página */
@@ -907,7 +912,7 @@ footer p {
     filter: drop-shadow(0 0 12px rgb(163, 217, 119));
 }
 
-/* Lightbox de galería */
+/* Lightbox de Galería */
 
 .lightbox {
     display: none;
@@ -1058,12 +1063,13 @@ footer p {
 
     .hero {
     height: min(56.25vw, 260px);
-    margin-top: -58px;
+    margin-top: -65px;
 }
 
 .hero-content img {
-    max-width: 140px;
-    margin-top: 40px;
+    max-width: 110px;
+    margin-top: 30px;
+    margin-bottom: 25px;
 }
 
 .hero-video {
@@ -1078,11 +1084,13 @@ footer p {
 }
 
 [data-section="logo-sub"] {
+    position: relative;
+    z-index: 5;
     margin-top: -35px !important;
     font-size: 1rem;
     color: var(--blanco);
     font-weight: 600;
-    text-shadow: 0 1px 3px rgb(221, 221, 221), 0 0 10px rgb(255, 255, 255); 
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8), 0 0 12px rgb(255, 255, 255);
 }
 
 .overlay-buttons {
@@ -1098,11 +1106,16 @@ footer p {
     text-align: center;
 }
 
+.carousel-container {
+    margin: -50px 0 30px;
+}
+
 .redes-section {
     flex-direction: row;
     gap: 10px;
     padding: 20px 0;
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-bottom: -30px;
 }
 
 .red-card {
@@ -1212,6 +1225,7 @@ footer p {
 
 
     /* Quiénes somos - mobile */
+    
     #nosotros h1 {
         font-size: 1.6rem;
         margin-bottom: 6px;

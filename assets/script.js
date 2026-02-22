@@ -292,10 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ? ``
                         : (esEventoPrivado
                             ? ""
-                            : `<a href="${whatsappLink}" target="_blank" class="btn-ticket">
-                                    <span class="btn-ticket-texto">${idiomaActual === "es" ? "RESERVAR" : "TICKETS"}</span>
-                                    <span class="btn-ticket-wpp"><i class="fab fa-whatsapp"></i></span>
-                                </a>`
+                            : `<a href="${whatsappLink}" target="_blank" class="btn-ticket btn-ticket-wpp-link" title="${idiomaActual === "es" ? "Reservar por WhatsApp" : "Book via WhatsApp"}"><i class="fab fa-whatsapp"></i></a>`
                           )
                     }
                 </div>

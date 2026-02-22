@@ -370,13 +370,6 @@ if (enlaceLogo) {
                 en: ""
             }
         },
-        {
-            src: "assets/img/",
-            piedefoto: {
-                es: "",
-                en: ""
-            }
-        },
     ];
 
     let indiceNosotros = 0;

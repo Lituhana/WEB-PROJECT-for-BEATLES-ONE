@@ -42,7 +42,7 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
 --------------------------------------------------------------------------------------------------------------------------
 
 ## 📁 Project Structure
-
+```
 📁
  ├── assets/
  │   ├── css/
@@ -52,7 +52,7 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
  │   └── img/
  ├── index.html
  └── README.md
-
+```
 --------------------------------------------------------------------------------------------------------------------------
 
 ## 👩‍💻 Development Context

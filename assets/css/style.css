@@ -30,7 +30,7 @@ html, body {
 body {
     font-family: 'Crimson Text', serif;
     font-style: normal;
-    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.8)), url('img/Fondo_1.jpg');
+    background-image: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.8)), url("../img/Fondo_1.jpg");
     background-size: cover;
     background-attachment: fixed;
     display: flex;

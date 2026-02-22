@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let shows = [];
 
-    // Traducciones al inglés
+    // Traducciones
 
     const translations = {
         es: {
@@ -120,109 +120,109 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Hamburger Menu
+    // Menú Hamburguesa
 
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const navMenu = document.querySelector("nav");
+    const btnHamburguesa = document.getElementById("hamburger-btn");
+    const menuNav = document.querySelector("nav");
 
-    const closeHamburger = () => {
-        hamburgerBtn.classList.remove("open");
-        navMenu.classList.remove("open");
+    const cerrarHamburguesa = () => {
+        btnHamburguesa.classList.remove("open");
+        menuNav.classList.remove("open");
     };
 
-    if (hamburgerBtn) {
-        hamburgerBtn.addEventListener("click", () => {
-            hamburgerBtn.classList.toggle("open");
-            navMenu.classList.toggle("open");
+    if (btnHamburguesa) {
+        btnHamburguesa.addEventListener("click", () => {
+            btnHamburguesa.classList.toggle("open");
+            menuNav.classList.toggle("open");
         });
     }
 
     // Cerrar menú al hacer click fuera
     document.addEventListener("click", (e) => {
-        if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
-            closeHamburger();
+        if (!btnHamburguesa.contains(e.target) && !menuNav.contains(e.target)) {
+            cerrarHamburguesa();
         }
     });
 
     // Lógica de Pestañas
 
-    const navLinks = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll("main section");
+    const enlacesNav = document.querySelectorAll("nav a");
+    const secciones = document.querySelectorAll("main section");
 
-    const goToSection = (targetId) => {
-        sections.forEach(s => s.classList.remove("active"));
-        navLinks.forEach(l => l.classList.remove("active-link"));
-        document.getElementById(targetId).classList.add("active");
-        const activeLink = document.querySelector(`nav a[href="#${targetId}"]`);
-        if (activeLink) activeLink.classList.add("active-link");
+    const irASeccion = (idDestino) => {
+        secciones.forEach(s => s.classList.remove("active"));
+        enlacesNav.forEach(l => l.classList.remove("active-link"));
+        document.getElementById(idDestino).classList.add("active");
+        const enlaceActivo = document.querySelector(`nav a[href="#${idDestino}"]`);
+        if (enlaceActivo) enlaceActivo.classList.add("active-link");
     };
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
+    enlacesNav.forEach(enlace => {
+        enlace.addEventListener("click", (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute("href").substring(1);
-            goToSection(targetId);
+            const idDestino = enlace.getAttribute("href").substring(1);
+            irASeccion(idDestino);
             // Cierra el menú hamburguesa al navegar en mobile
-            closeHamburger();
+            cerrarHamburguesa();
         });
     });
 
     // Lógica de Idiomas
 
-    const changeLanguage = (lang) => {
+    const cambiarIdioma = (idioma) => {
         document.querySelectorAll("[data-section]").forEach(el => {
-            const key = el.getAttribute("data-section");
-            if (translations[lang][key]) {
-                el.innerHTML = translations[lang][key];
+            const clave = el.getAttribute("data-section");
+            if (translations[idioma][clave]) {
+                el.innerHTML = translations[idioma][clave];
             }
         });
 
         // Traducir placeholder del mensaje
         const mensajeTextarea = document.getElementById("mensaje");
         if (mensajeTextarea) {
-            mensajeTextarea.placeholder = lang === "es" ? "Dejanos tu mensaje" : "Leave us your message";
+            mensajeTextarea.placeholder = idioma === "es" ? "Dejanos tu mensaje" : "Leave us your message";
         }
 
-        document.documentElement.lang = lang;
+        document.documentElement.lang = idioma;
         renderShows();
     };
 
-    document.getElementById("btn-es").addEventListener("click", () => changeLanguage("es"));
-    document.getElementById("btn-en").addEventListener("click", () => changeLanguage("en"));
+    document.getElementById("btn-es").addEventListener("click", () => cambiarIdioma("es"));
+    document.getElementById("btn-en").addEventListener("click", () => cambiarIdioma("en"));
 
     // Cargar shows desde Google Sheets
 
-    const loadShowsFromSheet = async () => {
+    const cargarShowsDesdeHoja = async () => {
         try {
-            const response = await fetch(SHEET_URL);
-            const text = await response.text();
+            const respuesta = await fetch(SHEET_URL);
+            const texto = await respuesta.text();
 
-            const json = JSON.parse(text.substring(47).slice(0, -2));
-            const rows = json.table.rows;
+            const json = JSON.parse(texto.substring(47).slice(0, -2));
+            const filas = json.table.rows;
 
-            shows = rows.map(row => {
-                const cells = row.c;
-                if (!cells || !cells[0] || !cells[6] || cells[6].v.toUpperCase() !== "SI") {
+            shows = filas.map(fila => {
+                const celdas = fila.c;
+                if (!celdas || !celdas[0] || !celdas[6] || celdas[6].v.toUpperCase() !== "SI") {
                     return null;
                 }
 
-                let rawDate = cells[0].v;
+                let fechaCruda = celdas[0].v;
                 let fechaFinal;
 
-                if (typeof rawDate === "string" && rawDate.includes("Date")) {
-                    const d = rawDate.match(/\d+/g);
+                if (typeof fechaCruda === "string" && fechaCruda.includes("Date")) {
+                    const d = fechaCruda.match(/\d+/g);
                     fechaFinal = new Date(d[0], d[1], d[2]);
                 } else {
-                    fechaFinal = new Date(rawDate);
+                    fechaFinal = new Date(fechaCruda);
                 }
 
                 return {
                     fechaObjeto: fechaFinal,
                     lugar: {
-                        es: cells[3] ? cells[3].v : "",
-                        en: cells[4] ? cells[4].v : ""
+                        es: celdas[3] ? celdas[3].v : "",
+                        en: celdas[4] ? celdas[4].v : ""
                     },
-                    ciudad: cells[5] ? cells[5].v : ""
+                    ciudad: celdas[5] ? celdas[5].v : ""
                 };
             }).filter(show => show !== null);
 
@@ -258,9 +258,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const crearLi = (show, esPasado) => {
             const li = document.createElement("li");
 
-            const dayName = new Intl.DateTimeFormat(idiomaActual, { weekday: 'short' }).format(show.fechaObjeto);
-            const dayNum = new Intl.DateTimeFormat(idiomaActual, { day: '2-digit' }).format(show.fechaObjeto);
-            const monthName = new Intl.DateTimeFormat(idiomaActual, { month: 'long' }).format(show.fechaObjeto);
+            const nombreDia = new Intl.DateTimeFormat(idiomaActual, { weekday: 'short' }).format(show.fechaObjeto);
+            const numeroDia = new Intl.DateTimeFormat(idiomaActual, { day: '2-digit' }).format(show.fechaObjeto);
+            const nombreMes = new Intl.DateTimeFormat(idiomaActual, { month: 'long' }).format(show.fechaObjeto);
 
             const lugarActual = show.lugar[idiomaActual] || show.lugar.es;
             const esEventoPrivado = lugarActual.toUpperCase().includes("PRIVADO") || lugarActual.toUpperCase().includes("PRIVATE");
@@ -270,16 +270,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Mensaje de WhatsApp personalizado
             const mensajeWhatsApp = idiomaActual === "es"
-                ? `Hola! Me interesa reservar para el show del ${dayNum} de ${monthName} en ${lugarActual}`
-                : `Hi! I'm interested in booking for the show on ${monthName} ${dayNum} at ${lugarActual}`;
+                ? `Hola! Me interesa reservar para el show del ${numeroDia} de ${nombreMes} en ${lugarActual}`
+                : `Hi! I'm interested in booking for the show on ${nombreMes} ${numeroDia} at ${lugarActual}`;
 
-            const whatsappLink = `https://wa.me/59892660276?text=${encodeURIComponent(mensajeWhatsApp)}`;
+            const enlaceWhatsApp = `https://wa.me/59892660276?text=${encodeURIComponent(mensajeWhatsApp)}`;
 
             li.innerHTML = `
                 <div class="show-date-box">
-                    <span>${dayName.replace('.', '').toUpperCase()}</span>
-                    <span class="date-day-num">${dayNum}</span>
-                    <span>${monthName.replace('.', '').toUpperCase()}</span>
+                    <span>${nombreDia.replace('.', '').toUpperCase()}</span>
+                    <span class="date-day-num">${numeroDia}</span>
+                    <span>${nombreMes.replace('.', '').toUpperCase()}</span>
                 </div>
 
                 <div class="show-content">
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ? ``
                         : (esEventoPrivado
                             ? ""
-                            : `<a href="${whatsappLink}" target="_blank" class="btn-ticket btn-ticket-wpp-link" title="${idiomaActual === "es" ? "Reservar por WhatsApp" : "Book via WhatsApp"}"><i class="fab fa-whatsapp"></i></a>`
+                            : `<a href="${enlaceWhatsApp}" target="_blank" class="btn-ticket btn-ticket-wpp-link" title="${idiomaActual === "es" ? "Reservar por WhatsApp" : "Book via WhatsApp"}"><i class="fab fa-whatsapp"></i></a>`
                           )
                     }
                 </div>
@@ -312,16 +312,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click en logo: en mobile abre/cierra el menú, en desktop va a Inicio
 
-const logoLink = document.getElementById("logo-link");
-if (logoLink) {
-    logoLink.addEventListener("click", (e) => {
+const enlaceLogo = document.getElementById("logo-link");
+if (enlaceLogo) {
+    enlaceLogo.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation(); // evita que el click se propague al document y cierre el menú
         if (window.innerWidth <= 768) {
-            hamburgerBtn.classList.toggle("open");
-            navMenu.classList.toggle("open");
+            btnHamburguesa.classList.toggle("open");
+            menuNav.classList.toggle("open");
         } else {
-            goToSection("inicio");
+            irASeccion("inicio");
         }
     });
 }
@@ -332,7 +332,7 @@ if (logoLink) {
     if (btnVerTodos) {
         btnVerTodos.addEventListener("click", (e) => {
             e.preventDefault();
-            goToSection("shows");
+            irASeccion("shows");
         });
     }
 
@@ -362,48 +362,48 @@ if (logoLink) {
         }
     ];
 
-    let currentVideoIndex = 0;
+    let indiceVideoActual = 0;
 
-    const updateVideo = () => {
-        const videoPlayer = document.getElementById("videoPlayer");
-        const videoCaption = document.getElementById("videoCaption");
+    const actualizarVideo = () => {
+        const reproductorVideo = document.getElementById("videoPlayer");
+        const epigrafVideo = document.getElementById("videoCaption");
         const idiomaActual = document.documentElement.lang || "es";
 
-        videoPlayer.src = videos[currentVideoIndex].src;
-        videoCaption.textContent = videos[currentVideoIndex].caption[idiomaActual];
-        videoPlayer.load();
+        reproductorVideo.src = videos[indiceVideoActual].src;
+        epigrafVideo.textContent = videos[indiceVideoActual].caption[idiomaActual];
+        reproductorVideo.load();
     };
 
     document.getElementById("prevBtn").addEventListener("click", () => {
-        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-        updateVideo();
+        indiceVideoActual = (indiceVideoActual - 1 + videos.length) % videos.length;
+        actualizarVideo();
     });
 
     document.getElementById("nextBtn").addEventListener("click", () => {
-        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-        updateVideo();
+        indiceVideoActual = (indiceVideoActual + 1) % videos.length;
+        actualizarVideo();
     });
 
     // Formulario de Contacto
 
-    const form = document.getElementById("contacto-formulario");
+    const formulario = document.getElementById("contacto-formulario");
     const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
 
-    if (form) {
-        form.addEventListener("submit", async (e) => {
+    if (formulario) {
+        formulario.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const formData = new FormData(form);
+            const datosFormulario = new FormData(formulario);
 
             try {
-                const response = await fetch(form.action, {
+                const respuesta = await fetch(formulario.action, {
                     method: "POST",
-                    body: formData,
+                    body: datosFormulario,
                     headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
-                    form.reset();
+                if (respuesta.ok) {
+                    formulario.reset();
 
                     if (mensajeConfirmacion) {
                         mensajeConfirmacion.style.display = "block";
@@ -415,7 +415,7 @@ if (logoLink) {
                     }
 
                     // Nos aseguramos de que quede en la sección contacto
-                    goToSection("contacto");
+                    irASeccion("contacto");
                 }
 
             } catch (error) {
@@ -427,53 +427,53 @@ if (logoLink) {
     // Lightbox de Galería
 
     const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const lightboxClose = document.getElementById("lightbox-close");
-    const lightboxPrev = document.getElementById("lightbox-prev");
-    const lightboxNext = document.getElementById("lightbox-next");
+    const imagenLightbox = document.getElementById("lightbox-img");
+    const epigrafeLightbox = document.getElementById("lightbox-caption");
+    const cerrarLightbox_btn = document.getElementById("lightbox-close");
+    const anteriorLightbox = document.getElementById("lightbox-prev");
+    const siguienteLightbox = document.getElementById("lightbox-next");
 
     let galeriaImagenes = [];
     window._galeriaImagenes = galeriaImagenes;
-    let lightboxIndex = 0;
+    let indiceLightbox = 0;
     window._lightboxIndex = 0;
 
-    const getLightboxCaption = (index) => {
-        const img = galeriaImagenes[index];
-        const lang = document.documentElement.lang || "es";
-        if (img.captionKey && translations[lang][img.captionKey]) {
-            return translations[lang][img.captionKey];
+    const obtenerEpigrafeLightbox = (indice) => {
+        const img = galeriaImagenes[indice];
+        const idioma = document.documentElement.lang || "es";
+        if (img.captionKey && translations[idioma][img.captionKey]) {
+            return translations[idioma][img.captionKey];
         }
         return img.caption;
     };
 
-    const openLightbox = (index) => {
-        lightboxIndex = index;
-        window._lightboxIndex = index;
-        lightboxImg.src = galeriaImagenes[index].src;
-        lightboxImg.alt = galeriaImagenes[index].alt;
-        lightboxCaption.textContent = getLightboxCaption(index);
+    const abrirLightbox = (indice) => {
+        indiceLightbox = indice;
+        window._lightboxIndex = indice;
+        imagenLightbox.src = galeriaImagenes[indice].src;
+        imagenLightbox.alt = galeriaImagenes[indice].alt;
+        epigrafeLightbox.textContent = obtenerEpigrafeLightbox(indice);
         lightbox.classList.add("active");
         document.body.style.overflow = "hidden";
     };
 
-    const closeLightbox = () => {
+    const cerrarLightbox = () => {
         lightbox.classList.remove("active");
         document.body.style.overflow = "";
     };
 
-    const showPrev = () => {
-        lightboxIndex = (lightboxIndex - 1 + galeriaImagenes.length) % galeriaImagenes.length;
-        window._lightboxIndex = lightboxIndex;
-        lightboxImg.src = galeriaImagenes[lightboxIndex].src;
-        lightboxCaption.textContent = getLightboxCaption(lightboxIndex);
+    const mostrarAnterior = () => {
+        indiceLightbox = (indiceLightbox - 1 + galeriaImagenes.length) % galeriaImagenes.length;
+        window._lightboxIndex = indiceLightbox;
+        imagenLightbox.src = galeriaImagenes[indiceLightbox].src;
+        epigrafeLightbox.textContent = obtenerEpigrafeLightbox(indiceLightbox);
     };
 
-    const showNext = () => {
-        lightboxIndex = (lightboxIndex + 1) % galeriaImagenes.length;
-        window._lightboxIndex = lightboxIndex;
-        lightboxImg.src = galeriaImagenes[lightboxIndex].src;
-        lightboxCaption.textContent = getLightboxCaption(lightboxIndex);
+    const mostrarSiguiente = () => {
+        indiceLightbox = (indiceLightbox + 1) % galeriaImagenes.length;
+        window._lightboxIndex = indiceLightbox;
+        imagenLightbox.src = galeriaImagenes[indiceLightbox].src;
+        epigrafeLightbox.textContent = obtenerEpigrafeLightbox(indiceLightbox);
     };
 
     // Recolectamos todas las imágenes de la galería
@@ -485,32 +485,32 @@ if (logoLink) {
             caption: img.getAttribute("data-caption") || img.alt
         });
 
-        img.addEventListener("click", () => openLightbox(i));
+        img.addEventListener("click", () => abrirLightbox(i));
     });
     window._galeriaImagenes = galeriaImagenes;
 
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightboxPrev.addEventListener("click", showPrev);
-    lightboxNext.addEventListener("click", showNext);
+    cerrarLightbox_btn.addEventListener("click", cerrarLightbox);
+    anteriorLightbox.addEventListener("click", mostrarAnterior);
+    siguienteLightbox.addEventListener("click", mostrarSiguiente);
 
     // Cerrar lightbox al hacer click fuera de la imagen
     lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
+        if (e.target === lightbox) cerrarLightbox();
     });
 
     // Navegación con teclado en el lightbox
     document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("active")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowLeft") showPrev();
-        if (e.key === "ArrowRight") showNext();
+        if (e.key === "Escape") cerrarLightbox();
+        if (e.key === "ArrowLeft") mostrarAnterior();
+        if (e.key === "ArrowRight") mostrarSiguiente();
     });
 
     // Inicialización
 
-    loadShowsFromSheet();
+    cargarShowsDesdeHoja();
 
-    const homeLink = document.querySelector('nav a[href="#inicio"]');
-    if (homeLink) homeLink.classList.add("active-link");
+    const enlaceInicio = document.querySelector('nav a[href="#inicio"]');
+    if (enlaceInicio) enlaceInicio.classList.add("active-link");
 
 });

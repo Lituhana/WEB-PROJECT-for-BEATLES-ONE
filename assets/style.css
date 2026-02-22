@@ -1224,7 +1224,7 @@ footer p {
     }
 
 
-    /* Quiénes somos - mobile */
+    /* Quiénes somos - celular */
     
     #nosotros h1 {
         font-size: 1.6rem;
@@ -1265,7 +1265,7 @@ footer p {
 
 }
 
-/* Shows - estado base (desktop): texto visible, ícono WPP oculto */
+/* Shows - estado base (escritorio): texto visible, ícono WPP oculto */
 
 .btn-ticket-texto {
     display: inline;
@@ -1275,7 +1275,7 @@ footer p {
     display: none;
 }
 
-/* Botón hamburguesa - oculto en desktop */
+/* Botón hamburguesa - oculto en escritorio */
 
 .hamburger {
     display: none;

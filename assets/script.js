@@ -55,12 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto4": "Beatles One",
             "caption-foto5": "Beatles One en Brickel",
             "caption-foto6": "Beatles One en The Shannon Irish Pub",
+            "caption-foto7": "John y Ringo en La Piqué House",
+            "caption-foto8": "Ringo con su Ludwig",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
             "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
             "caption-instrumentos-5": "Las Casinos de John",
             "caption-instrumentos-6": "Las Rickenbacker de John",
+            "caption-instrumentos-7": "Los bajos de Paul",
+            "caption-instrumentos-8": "Las guitarras de George",
             "galeria-eventos-privados": "Eventros Privados",
             "caption-evento1": "Cumpleaños n°80 de Jesús",
         },
@@ -109,12 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto4": "Beatles One",
             "caption-foto5": "Beatles One at Brickel",
             "caption-foto6": "Beatles One at The Shannon Irish Pub",
+            "caption-foto7": "John and Ringo at La Piqué House",
+            "caption-foto8": "Ringo with his Ludwig drum kit",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Backline at Inmigrantes MVD",
             "caption-instrumentos-3": "Ludwig drum kit at Q'Atrevido",
             "caption-instrumentos-4": "Full setup at The Shannon Irish Pub",
             "caption-instrumentos-5": "John's Casino guitars",
             "caption-instrumentos-6": "John's Rickenbacker guitars",
+            "caption-instrumentos-7": "Paul's basses",
+            "caption-instrumentos-8": "George's guitars",
             "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
         }
@@ -335,6 +343,61 @@ if (enlaceLogo) {
             irASeccion("shows");
         });
     }
+
+    // Carrusel de Fotos - Sección Nosotros
+
+    const fotosNosotros = [
+        {
+            src: "assets/img/Beatles_One_Beatleweek.png",
+            piedefoto: {
+                es: "Beatles One participando de la 25ª Beatleweek en The Cavern Club de Bs As - 2025",
+                en: "Beatles One performing at the 25th Beatleweek at The Cavern Club in Bs As - 2025"
+            }
+        },
+        {
+            src: "assets/img/Camilo.jpg",
+            piedefoto: {
+                es: "Camilo Celi, fundador y líder de Beatles One",
+                en: "Camilo Celi, founder and leader of Beatles One"
+            }
+        },
+        {
+            src: "assets/img/",
+            piedefoto: {
+                es: "",
+                en: ""
+            }
+        },
+        {
+            src: "assets/img/",
+            piedefoto: {
+                es: "",
+                en: ""
+            }
+        },
+    ];
+
+    let indiceNosotros = 0;
+
+    const fotoNosotros = document.getElementById("nosotros-foto");
+    const piedeNosotros = document.getElementById("nosotros-piedefoto");
+
+    const actualizarFotoNosotros = () => {
+        const idiomaActual = document.documentElement.lang || "es";
+        fotoNosotros.src = fotosNosotros[indiceNosotros].src;
+        fotoNosotros.alt = fotosNosotros[indiceNosotros].piedefoto.es;
+        piedeNosotros.textContent = fotosNosotros[indiceNosotros].piedefoto[idiomaActual];
+    };
+
+    document.getElementById("nosotros-prev").addEventListener("click", () => {
+        indiceNosotros = (indiceNosotros - 1 + fotosNosotros.length) % fotosNosotros.length;
+        actualizarFotoNosotros();
+    });
+
+    document.getElementById("nosotros-next").addEventListener("click", () => {
+        indiceNosotros = (indiceNosotros + 1) % fotosNosotros.length;
+        actualizarFotoNosotros();
+    });
 
     // Carrusel de Videos
 

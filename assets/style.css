@@ -125,7 +125,7 @@ nav a {
     color: var(--beige);
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1.22rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     padding: 8px 25px;
@@ -440,16 +440,33 @@ main section.active {
     color: var(--beige);
 }
 
-#nosotros img {
-    max-width: 700px;
-    width: 90%;
-    height: auto;
+/* Carrusel de fotos - Nosotros */
+
+.nosotros-carrusel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
     margin: 30px 0 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-#nosotros p[data-section="nosotros-piedefoto"] {
+.nosotros-carrusel-inner {
+    flex: 1;
+    max-width: 700px;
+}
+
+.nosotros-carrusel-inner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: block;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+#nosotros-piedefoto {
     font-size: 1rem;
     color: var(--beige);
     font-style: italic;
@@ -1248,7 +1265,6 @@ footer p {
     footer p {
         text-align: center;
     }
-
 
     /* Quiénes somos - celular */
     

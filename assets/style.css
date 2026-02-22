@@ -180,6 +180,7 @@ main section.active {
 /* Formato para sección Inicio + Logo */
 
 [data-section="logo-sub"] {
+    font-family: "Crimson Text", serif;
     font-size: 2rem;
     color: var(--beige);
     margin-top: -50px !important; 
@@ -557,6 +558,7 @@ main section.active {
 }
 
 .subtitulo-galeria {
+    font-family: 'Playfair Display', serif;
     color: var(--beige);
     margin: -30px 0 30px;
     text-align: center;
@@ -565,6 +567,7 @@ main section.active {
 }
 
 .subtitulo-galeria2 {
+    font-family: 'Playfair Display', serif;
     color: var(--beige);
     margin: 30px 0 30px;
     text-align: center;
@@ -1274,12 +1277,14 @@ footer p {
     }
 
     #nosotros p[data-section="nosotros-subtitulo"] {
+        font-family: 'Playfair Display', serif;
         font-size: 1rem;
         text-align: left;
         padding: 0 16px 16px 16px;
     }
 
     #nosotros p[data-section="nosotros-descripcion"] {
+        font-family: 'Playfair Display', serif;
         font-size: 1rem;
         text-align: left;
         padding: 0 16px 16px 16px;

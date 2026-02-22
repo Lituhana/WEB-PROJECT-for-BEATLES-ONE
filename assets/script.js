@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto5": "Beatles One en Brickel",
             "caption-foto6": "Beatles One en The Shannon Irish Pub",
             "caption-foto7": "John y Ringo en La Piqué House",
-            "caption-foto8": "Ringo con su Ludwig",
+            "caption-foto8": "Ringo con su Batería Ludwig",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",

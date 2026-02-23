@@ -9,7 +9,7 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
 
 --------------------------------------------------------------------------------------------------------------------------
 
-## ⚙️ Technologies Used
+## 🛠️ Technologies Used
 
 - HTML5
 - CSS3
@@ -19,7 +19,7 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
 
 --------------------------------------------------------------------------------------------------------------------------
 
-## 📌 Main Features
+##  Main Features
 
 - Responsive design (desktop and mobile)
 - Dynamic show schedule connected to Google Sheets
@@ -31,7 +31,7 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
 
 --------------------------------------------------------------------------------------------------------------------------
 
-## 🧩 What I Worked On
+## ⚙️ What I Worked On
 
 - Structuring semantic HTML
 - Organizing CSS for maintainability with comments

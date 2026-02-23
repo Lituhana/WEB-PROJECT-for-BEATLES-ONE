@@ -58,14 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto7": "John y Ringo en La Piqué House",
             "caption-foto8": "Ringo con su Batería Ludwig",
             "caption-foto9": "Paul y John",
+            "caption-foto10": "George y John en The Shannon Irish Pub",
+            "caption-foto11": "Beatles One en el podcast \"Y la cosa fue así\"",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
             "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
-            "caption-instrumentos-5": "Las Casinos de John",
-            "caption-instrumentos-6": "Las Rickenbacker de John",
-            "caption-instrumentos-7": "Los bajos de Paul",
-            "caption-instrumentos-8": "Las guitarras de George",
+            "caption-instrumentos-5": "Equipamiento en Inmigrantes MVD",
+            "caption-instrumentos-6": "Las Casinos de John",
+            "caption-instrumentos-7": "Las Rickenbacker de John",
+            "caption-instrumentos-8": "Los bajos de Paul",
+            "caption-instrumentos-9": "Las guitarras de George",
             "galeria-eventos-privados": "Eventos Privados",
             "caption-evento1": "Cumpleaños n°80 de Jesús",
         },
@@ -117,14 +120,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto7": "John and Ringo at La Piqué House",
             "caption-foto8": "Ringo with his Ludwig drum kit",
             "caption-foto9": "Paul and John",
+            "caption-foto10": "George and John at The Shannon Irish Pub",
+            "caption-foto11": "Beatles One at \"Y la cosa fue así\" podcast",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Backline at Inmigrantes MVD",
             "caption-instrumentos-3": "Ludwig drum kit at Q'Atrevido",
             "caption-instrumentos-4": "Full setup at The Shannon Irish Pub",
-            "caption-instrumentos-5": "John's Casino guitars",
-            "caption-instrumentos-6": "John's Rickenbacker guitars",
-            "caption-instrumentos-7": "Paul's basses",
-            "caption-instrumentos-8": "George's guitars",
+            "caption-instrumentos-5": "Backline at Inmigrantes MVD",
+            "caption-instrumentos-6": "John's Casinos",
+            "caption-instrumentos-7": "John's Rickenbackers",
+            "caption-instrumentos-8": "Paul's basses",
+            "caption-instrumentos-9": "George's guitars",
             "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
         }
@@ -148,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Cerrar menú al hacer click fuera
+
     document.addEventListener("click", (e) => {
         if (!btnHamburguesa.contains(e.target) && !menuNav.contains(e.target)) {
             cerrarHamburguesa();
@@ -172,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const idDestino = enlace.getAttribute("href").substring(1);
             irASeccion(idDestino);
-            // Cierra el menú hamburguesa al navegar en mobile
             cerrarHamburguesa();
         });
     });
@@ -188,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Traducir placeholder del mensaje
+
         const mensajeTextarea = document.getElementById("mensaje");
         if (mensajeTextarea) {
             mensajeTextarea.placeholder = idioma === "es" ? "Dejanos tu mensaje" : "Leave us your message";
@@ -279,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (esPasado) li.classList.add("pasado");
 
             // Mensaje de WhatsApp personalizado
+
             const mensajeWhatsApp = idiomaActual === "es"
                 ? `Hola! Me interesa reservar para el show del ${numeroDia} de ${nombreMes} en ${lugarActual}`
                 : `Hi! I'm interested in booking for the show on ${nombreMes} ${numeroDia} at ${lugarActual}`;
@@ -326,7 +334,7 @@ const enlaceLogo = document.getElementById("logo-link");
 if (enlaceLogo) {
     enlaceLogo.addEventListener("click", (e) => {
         e.preventDefault();
-        e.stopPropagation(); // evita que el click se propague al document y cierre el menú
+        e.stopPropagation(); 
         if (window.innerWidth <= 768) {
             btnHamburguesa.classList.toggle("open");
             menuNav.classList.toggle("open");
@@ -354,13 +362,44 @@ if (enlaceLogo) {
             piedefoto: {
                 es: "Beatles One participando de la 25ª Beatleweek en The Cavern Club de Bs As - 2025",
                 en: "Beatles One performing at the 25th Beatleweek at The Cavern Club in Bs As - 2025"
-            }
+            },
+            sobre: {
+                es: "Sobre Beatles One",
+                en: "About Beatles One"
+            },
+            descripcion: {
+                es: "Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, el proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club de Buenos Aires en 2025.",
+                en: "Beatles One was founded in Montevideo by Camilo Celi, former member of Danger Four, the project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Montevideo. This combination of experience and artistic commitment led the band to become finalists at the 25th edition of BeatleWeek at The Cavern Club Buenos Aires in 2025."
+            },    
         },
         {
             src: "assets/img/Camilo.jpg",
             piedefoto: {
-                es: "Camilo Celi, fundador y líder de Beatles One",
+                es: "Camilo Celi, fundador & líder de Beatles One",
                 en: "Camilo Celi, founder and leader of Beatles One"
+            },
+            sobre: {
+                es: "Sobre Camilo Celi",
+                en: "About Camilo Celi"
+            },
+            descripcion: {
+                es: "Camilo es el fundador y líder de Beatles One. Con más de 20 años de trayectoria interpretando la obra de The Beatles, Camilo impulsa el proyecto con una visión clara: Rendir homenaje a los 4 de Liverpool con respeto, calidad musical y una puesta en escena sólida.",
+                en: "Camilo is the founder and leader of Beatles One. With more than 20 years of experience interpreting The Beatles' work, Camilo drives the project with a clear vision: paying tribute to the 4 from Liverpool with respect, musical quality and a solid stage presentation."
+            }
+        },
+        {
+            src: "assets/img/Coco&Camilo.jpg",
+            piedefoto: {
+                es: "Krikor “Coco” Boudakian & Camilo Celi",
+                en: "Krikor “Coco” Boudakian & Camilo Celi"
+            },
+            sobre: {
+                es: "Siguiendo el Legado",
+                en: "Following the Legacy"
+            },
+            descripcion: {
+                es: "",
+                en: ""
             }
         },
         {
@@ -368,20 +407,36 @@ if (enlaceLogo) {
             piedefoto: {
                 es: "",
                 en: ""
+            },
+            sobre: {
+                es: "",
+                en: ""
+            },
+            descripcion: {
+                es: "",
+                en: ""
             }
         },
+
     ];
 
     let indiceNosotros = 0;
 
     const fotoNosotros = document.getElementById("nosotros-foto");
     const piedeNosotros = document.getElementById("nosotros-piedefoto");
+    const sobreNosotros = document.querySelector("[data-section='nosotros-sobre']");
+    const subtituloNosotros = document.querySelector("[data-section='nosotros-subtitulo']");
+    const descripcionNosotros = document.querySelector("[data-section='nosotros-descripcion']");
 
     const actualizarFotoNosotros = () => {
-        const idiomaActual = document.documentElement.lang || "es";
-        fotoNosotros.src = fotosNosotros[indiceNosotros].src;
-        fotoNosotros.alt = fotosNosotros[indiceNosotros].piedefoto.es;
-        piedeNosotros.textContent = fotosNosotros[indiceNosotros].piedefoto[idiomaActual];
+        const idioma = document.documentElement.lang || "es";
+        const foto = fotosNosotros[indiceNosotros];
+        fotoNosotros.src = foto.src;
+        fotoNosotros.alt = foto.piedefoto.es;
+        piedeNosotros.textContent = foto.piedefoto[idioma];
+        sobreNosotros.textContent = foto.sobre[idioma];
+        subtituloNosotros.textContent = foto.subtitulo[idioma];
+        descripcionNosotros.textContent = foto.descripcion[idioma];
     };
 
     document.getElementById("nosotros-prev").addEventListener("click", () => {
@@ -478,7 +533,6 @@ if (enlaceLogo) {
                         }, 4000);
                     }
 
-                    // Nos aseguramos de que quede en la sección contacto
                     irASeccion("contacto");
                 }
 
@@ -541,6 +595,7 @@ if (enlaceLogo) {
     };
 
     // Recolectamos todas las imágenes de la galería
+
     document.querySelectorAll(".galeria-grid img").forEach((img, i) => {
         galeriaImagenes.push({
             src: img.src,
@@ -558,11 +613,13 @@ if (enlaceLogo) {
     siguienteLightbox.addEventListener("click", mostrarSiguiente);
 
     // Cerrar lightbox al hacer click fuera de la imagen
+
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) cerrarLightbox();
     });
 
     // Navegación con teclado en el lightbox
+
     document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("active")) return;
         if (e.key === "Escape") cerrarLightbox();

@@ -30,9 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "El tributo a The Beatles de Uruguay",
             "nosotros-piedefoto": "Beatles One participando de la 25° Beatleweek en The Cavern Club de Bs As - 2025",
-            "nosotros-sobre": "Sobre Beatles One",
-            "nosotros-subtitulo": "Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, con más de 20 años de trayectoria interpretando la obra de The Beatles. Como creador y líder del proyecto, Camilo impulsa la banda con una visión clara: rendir homenaje al legado de Liverpool con respeto, calidad musical y una puesta en escena sólida.",
-            "nosotros-descripcion": "El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club Buenos Aires en 2025.",
             "shows-titulo": "Próximos Shows",
             "shows-pasados-titulo": "Shows Anteriores",
             "no-shows-message": "Aún no hay shows programados.",
@@ -64,11 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
             "caption-instrumentos-4": "Full set en The Shannon Irish Pub",
-            "caption-instrumentos-5": "Equipamiento en Inmigrantes MVD",
-            "caption-instrumentos-6": "Las Casinos de John",
-            "caption-instrumentos-7": "Las Rickenbacker de John",
-            "caption-instrumentos-8": "Los bajos de Paul",
-            "caption-instrumentos-9": "Las guitarras de George",
+            "caption-instrumentos-5": "Las Casinos de John",
+            "caption-instrumentos-6": "Las Rickenbacker de John",
+            "caption-instrumentos-7": "Los bajos de Paul",
+            "caption-instrumentos-8": "Las guitarras de George",
             "galeria-eventos-privados": "Eventos Privados",
             "caption-evento1": "Cumpleaños n°80 de Jesús",
         },
@@ -92,9 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "A Beatles Tribute from Uruguay",
             "nosotros-piedefoto": "Beatles One performing at the 25th Beatleweek at The Cavern Club in Buenos Aires - 2025",
-            "nosotros-sobre": "About Beatles One",
-            "nosotros-subtitulo": "Beatles One was founded in Montevideo by Camilo Celi, former member of Danger Four, with over 20 years of experience performing the music of The Beatles. As the creator and leader of the project, Camilo drives the band with a clear vision: to honor Liverpool's legacy with respect, musical excellence and a strong stage presence.",
-            "nosotros-descripcion": "The project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Montevideo. This combination of experience and artistic commitment led the band to become finalists at the 25th edition of BeatleWeek at The Cavern Club Buenos Aires in 2025.",
             "shows-titulo": "Upcoming Gigs",
             "shows-pasados-titulo": "Past Gigs",
             "no-shows-message": "No upcoming shows scheduled.",
@@ -126,11 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-2": "Backline at Inmigrantes MVD",
             "caption-instrumentos-3": "Ludwig drum kit at Q'Atrevido",
             "caption-instrumentos-4": "Full setup at The Shannon Irish Pub",
-            "caption-instrumentos-5": "Backline at Inmigrantes MVD",
-            "caption-instrumentos-6": "John's Casinos",
-            "caption-instrumentos-7": "John's Rickenbackers",
-            "caption-instrumentos-8": "Paul's basses",
-            "caption-instrumentos-9": "George's guitars",
+            "caption-instrumentos-5": "John's Casino guitars",
+            "caption-instrumentos-6": "John's Rickenbacker guitars",
+            "caption-instrumentos-7": "Paul's basses",
+            "caption-instrumentos-8": "George's guitars",
             "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
         }
@@ -202,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.documentElement.lang = idioma;
         renderShows();
+        actualizarFotoNosotros();
     };
 
     document.getElementById("btn-es").addEventListener("click", () => cambiarIdioma("es"));
@@ -368,9 +361,9 @@ if (enlaceLogo) {
                 en: "About Beatles One"
             },
             descripcion: {
-                es: "Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four, el proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club de Buenos Aires en 2025.",
-                en: "Beatles One was founded in Montevideo by Camilo Celi, former member of Danger Four, the project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Montevideo. This combination of experience and artistic commitment led the band to become finalists at the 25th edition of BeatleWeek at The Cavern Club Buenos Aires in 2025."
-            },    
+                es: "Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four. El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo. Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club de Buenos Aires en 2025.",
+                en: "Beatles One was founded in Montevideo by Camilo Celi, former member of Danger Four. The project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Montevideo. This combination of experience and artistic commitment led the band to become finalists at the 25th edition of BeatleWeek at The Cavern Club Buenos Aires in 2025."
+            }
         },
         {
             src: "assets/img/Camilo.jpg",
@@ -383,41 +376,40 @@ if (enlaceLogo) {
                 en: "About Camilo Celi"
             },
             descripcion: {
-                es: "Camilo es el fundador y líder de Beatles One. Con más de 20 años de trayectoria interpretando la obra de The Beatles, Camilo impulsa el proyecto con una visión clara: Rendir homenaje a los 4 de Liverpool con respeto, calidad musical y una puesta en escena sólida.",
-                en: "Camilo is the founder and leader of Beatles One. With more than 20 years of experience interpreting The Beatles' work, Camilo drives the project with a clear vision: paying tribute to the 4 from Liverpool with respect, musical quality and a solid stage presentation."
-            }
+                es: "Camilo, fundador de Beatles One, con más de 20 años de trayectoria interpretando la obra de The Beatles, tiene como objetivo honrar a los cuatro de Liverpool con fidelidad, calidad musical y una puesta en escena a la altura de su legado.",
+                en: "Camilo, founder of Beatles One, with over 20 years of experience performing the work of The Beatles, aims to honor the Fab Four with fidelity, musical quality, and a stage presence worthy of their legacy."
+            },
         },
         {
             src: "assets/img/Coco&Camilo.jpg",
             piedefoto: {
-                es: "Krikor “Coco” Boudakian & Camilo Celi",
-                en: "Krikor “Coco” Boudakian & Camilo Celi"
+                es: "Krikor \"Coco\" Boudakian & Camilo Celi",
+                en: "Krikor \"Coco\" Boudakian & Camilo Celi"
             },
             sobre: {
                 es: "Siguiendo el Legado",
                 en: "Following the Legacy"
             },
             descripcion: {
-                es: "",
-                en: ""
+                es: "Camilo formó parte de Danger Four entre 2009 y 2017, trabajando codo a codo con Coco Boudakian, esta experiencia marcó su carrera, y hoy, Beatles One representa la continuación de ese aprendizaje, honrando el legado de Coco en su tierra natal, con el mismo compromiso y pasión por The Beatles.",
+                en: "Camilo was part of Danger Four from 2009 to 2017, working closely with Coco Boudakian. This experience marked his career and today, Beatles One represents the continuation of that learning, honoring Coco's legacy in his homeland, with the same commitment and passion for The Beatles."
             }
         },
         {
-            src: "assets/img/",
+            src: "assets/img/Rod_&_Tony.jpeg",
             piedefoto: {
-                es: "",
-                en: ""
+                es: "Camilo con Rod Davis y Tony Bramwell, leyendas del la historia Beatle",
+                en: "Camilo with Rod Davis and Tony Bramwell, legends of Beatle history"
             },
             sobre: {
-                es: "",
-                en: ""
+                es: "Junto a Rod Davis & Tony Bramwell",
+                en: "With Rod Davis & Tony Bramwell"
             },
             descripcion: {
-                es: "",
-                en: ""
+                es: "En el 2018, Camilo tuvo el privilegio de conocer a Tony Bramwell, ex ejecutivo de Apple Corps y amigo de la infancia de los Beatles, en el Festival de Leyendas en Estepona, España. Luego en el 2019, también tuvo el honor de compartir escenario con Rod Davis, en Lost Lane, Dublin, Irlanda, quien fue miembro original de The Quarrymen, primer grupo formado por John Lennon.",
+                en: "In 2018, Camilo had the privilege of meeting Tony Bramwell, former Apple Corps executive and childhood friend of the Beatles, at the Festival of Legends in Estepona, Spain. Then in 2019, Camilo had the honor of sharing the stage with Rod Davis, at Lost Lane in Dublin, Ireland, who was an original member of The Quarrymen, the first group formed by John Lennon."
             }
         },
-
     ];
 
     let indiceNosotros = 0;
@@ -425,7 +417,6 @@ if (enlaceLogo) {
     const fotoNosotros = document.getElementById("nosotros-foto");
     const piedeNosotros = document.getElementById("nosotros-piedefoto");
     const sobreNosotros = document.querySelector("[data-section='nosotros-sobre']");
-    const subtituloNosotros = document.querySelector("[data-section='nosotros-subtitulo']");
     const descripcionNosotros = document.querySelector("[data-section='nosotros-descripcion']");
 
     const actualizarFotoNosotros = () => {
@@ -434,9 +425,8 @@ if (enlaceLogo) {
         fotoNosotros.src = foto.src;
         fotoNosotros.alt = foto.piedefoto.es;
         piedeNosotros.textContent = foto.piedefoto[idioma];
-        sobreNosotros.textContent = foto.sobre[idioma];
-        subtituloNosotros.textContent = foto.subtitulo[idioma];
-        descripcionNosotros.textContent = foto.descripcion[idioma];
+        if (sobreNosotros) sobreNosotros.textContent = foto.sobre[idioma];
+        if (descripcionNosotros) descripcionNosotros.textContent = foto.descripcion[idioma];
     };
 
     document.getElementById("nosotros-prev").addEventListener("click", () => {
@@ -630,6 +620,7 @@ if (enlaceLogo) {
     // Inicialización
 
     cargarShowsDesdeHoja();
+    actualizarFotoNosotros();
 
     const enlaceInicio = document.querySelector('nav a[href="#inicio"]');
     if (enlaceInicio) enlaceInicio.classList.add("active-link");

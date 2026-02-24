@@ -477,7 +477,8 @@ main section.active {
 #nosotros h2 {
     background-color: var(--negro);
     border-left: 4px solid var(--verde);
-    padding: 20px 30px 0 30px;
+    padding: 20px 30px;
+    padding-bottom: 15px;
     margin: 30px auto 0;
     max-width: 900px;
     text-align: left;
@@ -487,10 +488,10 @@ main section.active {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-#nosotros p[data-section="nosotros-descripcion"] {
+#nosotros p[data-section="nosotros-subtitulo"] {
     background-color: var(--negro);
     border-left: 4px solid var(--verde);
-    padding: 15px 30px 20px 30px;
+    padding: 0 30px 15px 30px;
     margin: 0 auto;
     max-width: 900px;
     text-align: left;
@@ -498,9 +499,23 @@ main section.active {
     font-size: 1.3rem;
     line-height: 1.6;
     font-weight: 600;
+    white-space: pre-line;
+}
+
+#nosotros p[data-section="nosotros-descripcion"] {
+    background-color: var(--negro);
+    border-left: 4px solid var(--verde);
+    padding: 0 30px 20px 30px;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: left;
+    color: var(--verde);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    font-weight: 600;
+    white-space: pre-line;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    white-space: pre-line;
 }
 
 /* Carrusel de videos */
@@ -1256,18 +1271,28 @@ footer p {
     }
 
     /* Quiénes somos - celular */
-
+    
     #nosotros h1 {
         font-size: 1.6rem;
-        text-align: center;
         margin-bottom: 6px;
+    }
+
+    #nosotros h2 {
+        padding: 15px 16px 0 16px;
+    }
+
+    #nosotros p[data-section="nosotros-subtitulo"] {
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        text-align: left;
+        padding: 10px 16px 16px 16px;
     }
 
     #nosotros p[data-section="nosotros-descripcion"] {
         font-family: 'Playfair Display', serif;
         font-size: 1rem;
         text-align: left;
-        padding: 0 16px 16px 16px;
+        padding: 10px 16px 16px 16px;
     }
 
     #nosotros p[data-section="nosotros-piedefoto"] {
@@ -1276,10 +1301,23 @@ footer p {
         margin-bottom: 20px;
     }
 
+    .nosotros-carrusel .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .nosotros-carrusel-inner img {
+        height: 220px;
+        object-fit: contain;
+        object-position: center center;
+        background-color: var(--negro);
+    }
+    
     /* Galería - 2 columnas */
 
     .galeria-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
     }
@@ -1288,18 +1326,6 @@ footer p {
         height: 150px;
     }
 
-    .galeria-grid img:first-child:last-child {
-        grid-column: 1 / -1;
-        height: 200px;
-    }
-
-            .nosotros-carrusel-inner img {
-        height: 220px;
-        object-fit: contain;
-        object-position: center center;
-        background-color: var(--negro);
-    }
-    
 }
 
 /* Shows - estado base (escritorio): texto visible, ícono WPP oculto */

@@ -399,8 +399,8 @@ if (enlaceLogo) {
         {
             src: "assets/img/Rod_&_Tony.jpeg",
             piedefoto: {
-                es: "Camilo con Rod Davis y Tony Bramwell, leyendas del la historia Beatle",
-                en: "Camilo with Rod Davis and Tony Bramwell, legends of Beatle history"
+                es: "Camilo con Rod Davis & Tony Bramwell, leyendas del la historia Beatle",
+                en: "Camilo with Rod Davis & Tony Bramwell, legends of Beatle history"
             },
             sobre: {
                 es: "Junto a Rod Davis & Tony Bramwell",

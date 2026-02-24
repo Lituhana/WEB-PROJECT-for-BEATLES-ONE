@@ -1256,17 +1256,11 @@ footer p {
     }
 
     /* Quiénes somos - celular */
-    
+
     #nosotros h1 {
         font-size: 1.6rem;
+        text-align: center;
         margin-bottom: 6px;
-    }
-
-    #nosotros p[data-section="nosotros-subtitulo"] {
-        font-family: 'Playfair Display', serif;
-        font-size: 1rem;
-        text-align: left;
-        padding: 0 16px 16px 16px;
     }
 
     #nosotros p[data-section="nosotros-descripcion"] {
@@ -1278,14 +1272,14 @@ footer p {
 
     #nosotros p[data-section="nosotros-piedefoto"] {
         font-size: 0.85rem;
-        text-align: left;
+        text-align: center;
         margin-bottom: 20px;
     }
 
     /* Galería - 2 columnas */
 
     .galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         padding: 10px;
     }
@@ -1294,6 +1288,18 @@ footer p {
         height: 150px;
     }
 
+    .galeria-grid img:first-child:last-child {
+        grid-column: 1 / -1;
+        height: 200px;
+    }
+
+            .nosotros-carrusel-inner img {
+        height: 220px;
+        object-fit: contain;
+        object-position: center center;
+        background-color: var(--negro);
+    }
+    
 }
 
 /* Shows - estado base (escritorio): texto visible, ícono WPP oculto */

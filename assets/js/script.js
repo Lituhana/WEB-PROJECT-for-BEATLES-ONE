@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-9": "Las guitarras de George",
             "galeria-eventos-privados": "Eventos Privados",
             "caption-evento1": "Cumpleaños n°80 de Jesús",
+            "caption-evento2": "El setup para el cumpleaños n°80 de Jesús",
         },
 
         en: {
@@ -127,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-9": "George's guitars",
             "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
+            "caption-evento2": "Setup for Jesús' 80th birthday",
         }
     };
 
@@ -412,8 +414,8 @@ if (enlaceLogo) {
                 en: "With Rod Davis & Tony Bramwell"
             },
             descripcion: {
-                es: `En el 2018, Camilo tuvo el privilegio de conocer a Tony Bramwell, ex ejecutivo de Apple Corps y amigo de la infancia de los Beatles, en el Festival de Leyendas en Estepona, España. 
-                     Luego en el 2019, también tuvo el honor de compartir escenario con Rod Davis, en Lost Lane, Dublín, Irlanda, quien fue miembro original de The Quarrymen, primer grupo formado por John Lennon.`,
+                es: `En 2018, Camilo tuvo el privilegio de conocer a Tony Bramwell, ex ejecutivo de Apple Corps y amigo de la infancia de los Beatles, en el Festival de Leyendas en Estepona, España. 
+                     Luego en 2019, también tuvo el honor de compartir escenario con Rod Davis, en Lost Lane, Dublín, Irlanda, quien fue miembro original de The Quarrymen, primer grupo formado por John Lennon.`,
                 en: `In 2018, Camilo had the privilege of meeting Tony Bramwell, former Apple Corps executive and childhood friend of the Beatles, at the Festival of Legends in Estepona, Spain. 
                      Then in 2019, Camilo had the honour of sharing the stage with Rod Davis at Lost Lane in Dublin, Ireland, who was an original member of The Quarrymen, the first group formed by John Lennon.`
             }

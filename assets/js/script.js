@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Cerrar menú al hacer click fuera
+    // Cerrar menú al hacer click
 
     document.addEventListener("click", (e) => {
         if (!btnHamburguesa.contains(e.target) && !menuNav.contains(e.target)) {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Lógica de Pestañas
+    // Pestañas
 
     const enlacesNav = document.querySelectorAll("nav a");
     const secciones = document.querySelectorAll("main section");
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Lógica de Idiomas
+    // Idiomas
 
     const cambiarIdioma = (idioma) => {
         document.querySelectorAll("[data-section]").forEach(el => {
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Traducir placeholder del mensaje
+        // Traducimos placeholder del mensaje
 
         const mensajeTextarea = document.getElementById("mensaje");
         if (mensajeTextarea) {
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Renderizar Shows
+    // Renderizamos los Shows
 
     const renderShows = () => {
         const listaProximos = document.querySelector("#lista-shows-proximos");
@@ -369,7 +369,7 @@ if (enlaceLogo) {
                  en: `Beatles One was founded in Montevideo by Camilo Celi, former member of Danger Four.
                       The project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Montevideo.
                       This combination of experience and artistic commitment led the band to become finalists at the 25th edition of BeatleWeek at The Cavern Club Buenos Aires in 2025.`
-          }
+            }
         },
         {
             src: "assets/img/Camilo.jpg",
@@ -416,7 +416,7 @@ if (enlaceLogo) {
                      Luego en el 2019, también tuvo el honor de compartir escenario con Rod Davis, en Lost Lane, Dublín, Irlanda, quien fue miembro original de The Quarrymen, primer grupo formado por John Lennon.`,
                 en: `In 2018, Camilo had the privilege of meeting Tony Bramwell, former Apple Corps executive and childhood friend of the Beatles, at the Festival of Legends in Estepona, Spain. 
                      Then in 2019, Camilo had the honour of sharing the stage with Rod Davis at Lost Lane in Dublin, Ireland, who was an original member of The Quarrymen, the first group formed by John Lennon.`
-             }
+            }
         },
     ];
 
@@ -480,7 +480,7 @@ if (enlaceLogo) {
     const updateVideo = () => {
         const idiomaActual = document.documentElement.lang || "es";
 
-        // Cambiamos el src del iframe con el ID de YouTube
+    // Cambiamos el src del iframe con el ID de YouTube
 
         videoPlayer.src = `https://www.youtube.com/embed/${videoList[currentVideoIndex].id}?rel=0`;
         videoCaption.textContent = videoList[currentVideoIndex].caption[idiomaActual];

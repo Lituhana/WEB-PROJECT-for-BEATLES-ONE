@@ -437,7 +437,6 @@ main section.active {
 
 #nosotros h1 {
     font-size: 2.1rem;
-    margin-bottom: 10px;
     color: var(--beige);
 }
 
@@ -479,27 +478,13 @@ main section.active {
     border-left: 4px solid var(--verde);
     padding: 20px 30px;
     padding-bottom: 15px;
-    margin: 30px auto 0;
+    margin: -10px auto 0;
     max-width: 900px;
     text-align: left;
     font-size: 1.6rem;
     color: var(--beige);
     border-radius: 8px 8px 0 0;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-
-#nosotros p[data-section="nosotros-subtitulo"] {
-    background-color: var(--negro);
-    border-left: 4px solid var(--verde);
-    padding: 0 30px 15px 30px;
-    margin: 0 auto;
-    max-width: 900px;
-    text-align: left;
-    color: var(--verde);
-    font-size: 1.3rem;
-    line-height: 1.6;
-    font-weight: 600;
-    white-space: pre-line;
 }
 
 #nosotros p[data-section="nosotros-descripcion"] {
@@ -1317,7 +1302,7 @@ footer p {
     /* Galería - 2 columnas */
 
     .galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         padding: 10px;
     }
@@ -1325,6 +1310,11 @@ footer p {
     .galeria-grid img {
         height: 150px;
     }
+
+    .galeria-grid img:first-child:last-child {
+    grid-column: 1 / -1;
+    height: 350px;
+}
 
 }
 

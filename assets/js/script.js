@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "confirmacion-msg": "¡Mensaje enviado! Te responderemos a la brevedad.",
             "piedepagina": "© 2026 - Beatles One - Tributo Beatle",
             "galeria-banda": "La Banda",
-            "galeria-instrumentos": "Instrumentos y Equipamiento",
+            "galeria-instrumentos": "Instrumentos & Equipamiento",
             "caption-foto1": "Beatles One en Inmigrantes MVD",
             "caption-foto2": "Beatles One en La Vaca Azul",
             "caption-foto3": "Beatles One representando a 🇺🇾 en Buenos Aires",
@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-7": "John's Rickenbackers",
             "caption-instrumentos-8": "Paul's basses",
             "caption-instrumentos-9": "George's guitars",
+            "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
         }
     };

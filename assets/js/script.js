@@ -381,7 +381,7 @@ if (enlaceLogo) {
             },
         },
         {
-            src: "assets/img/Coco&Camilo.jpg",
+            src: "assets/img/Coco&Camilo2.png",
             piedefoto: {
                 es: "Krikor \"Coco\" Boudakian & Camilo Celi",
                 en: "Krikor \"Coco\" Boudakian & Camilo Celi"

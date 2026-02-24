@@ -498,9 +498,9 @@ main section.active {
     font-size: 1.3rem;
     line-height: 1.6;
     font-weight: 600;
-    white-space: pre-line;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    white-space: pre-line;
 }
 
 /* Carrusel de videos */

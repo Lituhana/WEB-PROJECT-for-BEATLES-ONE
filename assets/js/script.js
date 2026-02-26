@@ -339,14 +339,14 @@ if (enlaceLogo) {
     });
 }
 
-    // Botón "Ver todos los shows" redirige a #shows
+    // Botón "Ver todos los shows" redirige a Próximos Shows
 
     const btnVerTodos = document.getElementById("btn-ver-todos");
     if (btnVerTodos) {
         btnVerTodos.addEventListener("click", (e) => {
             e.preventDefault();
             irASeccion("shows");
-            window.scrollTo(0, 0)
+            window.scrollTo(0, 0) //Lleva al inicio de la página
         });
     }
 

@@ -58,3 +58,14 @@ This project was developed as a responsive website using HTML, CSS and JavaScrip
 ## 👩‍💻 Development Context
 
 This project was developed as a real website and portfolio project, applying front-end fundamentals and QA mindset for layout validation, visual consistency and user experience testing.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+## 🤖 AI Collaboration
+
+The JS logic and specific CSS optimisations were developed with AI assistance. I managed the technical requirements and architecture while independently designing the HTML structure and layout.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+## ✨ Author
+- Ana Osaba - February 2026

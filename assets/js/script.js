@@ -365,10 +365,10 @@ if (enlaceLogo) {
             },
             descripcion: {
                  es: `Beatles One nace en Montevideo, fundada por Camilo Celi, ex integrante de Danger Four.
-                      El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Montevideo.
+                      El proyecto reúne talento nacional, músicos apasionados por estos clásicos atemporales que los interpretan con fidelidad en escenarios de todo Uruguay.
                       Esa combinación de experiencia y compromiso artístico llevó a la banda a ser finalista de la 25ª edición de la BeatleWeek en The Cavern Club de Buenos Aires en 2025.`,
                  en: `Beatles One was founded in Montevideo by Camilo Celi, former member of Danger Four.
-                      The project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Montevideo.
+                      The project brings together national talent, musicians passionate about these timeless classics who perform them faithfully on stages throughout Uruguay.
                       This combination of experience and artistic commitment led the band to become finalists at the 25th edition of BeatleWeek at The Cavern Club Buenos Aires in 2025.`
             }
         },

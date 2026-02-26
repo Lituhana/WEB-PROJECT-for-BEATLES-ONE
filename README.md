@@ -63,7 +63,7 @@ This project was developed as a real website and portfolio project, applying fro
 
 ## 🤖 AI Collaboration
 
-The JS logic and specific CSS optimisations were developed with AI assistance. I managed the technical requirements and architecture while independently designing the HTML structure and layout.
+The JS logic and specific CSS optimisations were developed with AI assistance (Claude - Sonnet 4.6). I managed the technical requirements and architecture while independently designing the HTML structure and layout.
 
 --------------------------------------------------------------------------------------------------------------------------
 

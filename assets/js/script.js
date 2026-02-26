@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-ver-todos": "Ver todos los shows",
             "logo-sub": "El tributo definitivo a los 4 de Liverpool",
             "video-sub": "Beatles One en Bs As (2025) - Long Tall Sally",
-            "youtube-titulo": "Nuestro canal de YouTube",
-            "youtube-btn": "Ver canal",
+            "youtube-titulo": "Seguinos en YouTube",
+            "youtube-btn": "@beatlesone",
             "youtube-desc": "Videos de nuestros shows y ensayos",
             "instagram-titulo": "Seguinos en Instagram",
             "instagram-desc": "Fotos, historias y novedades de la banda",
@@ -81,8 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "btn-ver-todos": "See all shows",
             "logo-sub": "The ultimate tribute to the Fab Four",
             "video-sub": "Beatles One at Bs As (2025) - Long Tall Sally",
-            "youtube-titulo": "Our YouTube channel",
-            "youtube-btn": "Visit channel",
+            "youtube-titulo": "Follow us on YouTube",
+            "youtube-btn": "@beatlesone",
             "youtube-desc": "Videos from our shows and rehearsals",
             "instagram-titulo": "Follow us on Instagram",
             "instagram-desc": "Photos, stories and band updates",
@@ -384,8 +384,8 @@ if (enlaceLogo) {
                 en: "About Camilo Celi"
             },
             descripcion: {
-                es: "Camilo, fundador de Beatles One, con más de 20 años de trayectoria interpretando la obra de The Beatles, tiene como objetivo honrar a los cuatro de Liverpool con fidelidad, calidad musical y una puesta en escena a la altura de su legado.",
-                en: "Camilo, founder of Beatles One, with over 20 years of experience performing the work of The Beatles, aims to honor the Fab Four with fidelity, musical quality, and a stage presence worthy of their legacy."
+                es: `Fundador de Beatles One con más de 20 años de trayectoria interpretando la obra de The Beatles, tiene como misión honrar a los cuatro de Liverpool con fidelidad, calidad musical y una puesta en escena a la altura de su legado.`,
+                en: `Founder of Beatles One with over 20 years of experience performing the work of The Beatles, aims to honour the Fab Four with fidelity, musical quality and a stage presence worthy of their legacy.`
             },
         },
         {
@@ -414,11 +414,11 @@ if (enlaceLogo) {
                 en: "With Rod Davis & Tony Bramwell"
             },
             descripcion: {
-                es: `En 2018, Camilo tuvo el privilegio de conocer a Tony Bramwell, ex ejecutivo de Apple Corps y amigo de la infancia de los Beatles, en el Festival de Leyendas en Estepona, España. 
-                     Luego en 2019, también tuvo el honor de compartir escenario con Rod Davis, en Lost Lane, Dublín, Irlanda, quien fue miembro original de The Quarrymen, primer grupo formado por John Lennon.`,
-                en: `In 2018, Camilo had the privilege of meeting Tony Bramwell, former Apple Corps executive and childhood friend of the Beatles, at the Festival of Legends in Estepona, Spain. 
-                     Then in 2019, Camilo had the honour of sharing the stage with Rod Davis at Lost Lane in Dublin, Ireland, who was an original member of The Quarrymen, the first group formed by John Lennon.`
-            }
+                es: `En 2018, Camilo tuvo el privilegio de conocer a Tony Bramwell, ex ejecutivo de Apple Corps y amigo de la infancia de los Beatles, durante el Festival de Leyendas en Estepona, España.
+                     En 2019, compartió escenario en Dublín, Irlanda, con Rod Davis, miembro original de The Quarrymen, la primera banda formada por John Lennon.`,
+                en: `In 2018, Camilo had the privilege of meeting Tony Bramwell, former Apple Corps executive and childhood friend of The Beatles, at the Festival of Legends in Estepona, Spain.
+                     In 2019, he shared the stage in Dublin, Ireland, with Rod Davis, an original member of The Quarrymen, the first band formed by John Lennon.`
+        }
         },
     ];
 

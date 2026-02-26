@@ -23,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "video-sub": "Beatles One en Bs As (2025) - Long Tall Sally",
             "youtube-titulo": "Seguinos en YouTube",
             "youtube-btn": "@beatlesone",
-            "youtube-desc": "Videos de nuestros shows y ensayos",
             "instagram-titulo": "Seguinos en Instagram",
-            "instagram-desc": "Fotos, historias y novedades de la banda",
             "instagram-btn": "@beatles.one",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "El tributo a The Beatles de Uruguay",
@@ -57,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto9": "Paul & John",
             "caption-foto10": "George & John en The Shannon Irish Pub",
             "caption-foto11": "Beatles One en el podcast \"Y la cosa fue así\"",
+            "caption-foto12": "Beatles One en The Shannon Irish Pub",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Equipamiento en Inmigrantes MVD",
             "caption-instrumentos-3": "Batería Ludwig en Q'Atrevido",
@@ -83,9 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "video-sub": "Beatles One at Bs As (2025) - Long Tall Sally",
             "youtube-titulo": "Follow us on YouTube",
             "youtube-btn": "@beatlesone",
-            "youtube-desc": "Videos from our shows and rehearsals",
             "instagram-titulo": "Follow us on Instagram",
-            "instagram-desc": "Photos, stories and band updates",
             "instagram-btn": "@beatles.one",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "A Beatles Tribute from Uruguay",
@@ -117,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-foto9": "Paul & John",
             "caption-foto10": "George & John at The Shannon Irish Pub",
             "caption-foto11": "Beatles One at \"Y la cosa fue así\" podcast",
+            "caption-foto12": "Beatles One at The Shannon Irish Pub",
             "caption-instrumentos-1": "Paperback Writer set",
             "caption-instrumentos-2": "Backline at Inmigrantes MVD",
             "caption-instrumentos-3": "Ludwig drum kit at Q'Atrevido",
@@ -348,6 +346,7 @@ if (enlaceLogo) {
         btnVerTodos.addEventListener("click", (e) => {
             e.preventDefault();
             irASeccion("shows");
+            window.scrollTo(0, 0)
         });
     }
 

@@ -336,6 +336,7 @@ main section.active {
     height: 100%;
     object-fit: cover;
     display: block;
+    object-position: center 7%;
 }
 
 .proximo-show-overlay {
@@ -561,16 +562,18 @@ main section.active {
 }
 
 .galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex; 
+    flex-wrap: wrap;
     gap: 25px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 15px;
+    justify-content: center;
 }
 
 .galeria-grid img {
-    width: 100%;
+    flex: 1 1 calc(33.333% - 25px);
+    min-width: 280px;
     height: 280px;
     object-fit: cover;
     border-radius: 12px;
@@ -1178,32 +1181,33 @@ footer p {
         font-size: 1rem;
     }
 
-    .galeria-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        padding: 10px;
-        justify-items: center;
+ .galeria-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        padding: 8px !important;
+        justify-content: center !important;
+        width: 100% !important;
     }
 
     .galeria-grid img {
-        height: 150px;
+        flex: 1 1 calc(33.333% - 8px) !important; 
+        min-width: 0 !important;
+        width: auto !important;
+        height: 120px !important;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
-    .galeria-grid img:first-child:last-child {
-        grid-column: 1 / -1;
-        height: 350px;
+    .galeria-grid img:only-child {
+        flex: 1 1 100% !important;
+        height: 300px !important;
     }
 
     .galeria-grid img:first-child:nth-last-child(2),
     .galeria-grid img:first-child:nth-last-child(2) ~ img {
-        grid-column: span 1;
-        width: 100%;
-    }
-
-    .galeria-grid:has(img:first-child:last-child),
-    .galeria-grid:has(img:first-child:nth-last-child(2)) {
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
+        flex: 1 1 calc(50% - 8px) !important;
+        height: 180px !important;
     }
 
     .show-card {

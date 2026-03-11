@@ -454,7 +454,7 @@ if (enlaceLogo) {
         actualizarFotoNosotros();
     });
 
-    // Carrusel de Videos
+// Carrusel de Videos
 
     const videoList = [
         { 
@@ -469,6 +469,13 @@ if (enlaceLogo) {
             caption: { 
                 es: "Beatles One en Bs As (2025) - Hey Jude", 
                 en: "Beatles One at Bs As (2025) - Hey Jude" 
+            } 
+        },
+        { 
+            id: "aohEUSGUw1A", 
+            caption: { 
+                es: "Beatles One en Hard Rock Café (2026) - Twist & Shout", 
+                en: "Beatles One at Hard Rock Cafe (2026) - Twist & Shout" 
             } 
         },
         { 

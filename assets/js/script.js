@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-8": "Paul's basses",
             "caption-instrumentos-9": "George's guitars",
             "caption-instrumentos-10": "George's Gretsch",
-            "caption-instrumentos-11": "The Ludwig at Hard Rock Café",
+            "caption-instrumentos-11": "The Ludwig at Hard Rock Cafe",
             "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
             "caption-evento2": "Setup for Jesús' 80th birthday",

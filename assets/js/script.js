@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         if (proximos.length === 0) {
-            listaProximos.innerHTML = `<li>${translations[idiomaActual]["no-shows-message"]}</li>`;
+            listaProximos.innerHTML = `<li style="color: var(--beige)">${translations[idiomaActual]["no-shows-message"]}</li>`;
         } else {
             proximos.forEach(s => listaProximos.appendChild(crearLi(s, false)));
         }

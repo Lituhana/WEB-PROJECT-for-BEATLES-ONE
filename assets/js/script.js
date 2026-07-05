@@ -71,7 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-instrumentos-11": "La Ludwig en Hard Rock Café",
             "galeria-eventos-privados": "Eventos Privados",
             "caption-evento1": "Cumpleaños n°80 de Jesús",
-            "caption-evento2": "El setup para el cumpleaños n°80 de Jesús",
+            "caption-evento2": "El setup para el cumpleaños de Jesús",
+            "caption-evento3": "Cumpleaños de Ana",
+            "caption-evento4": "El setup para el cumpleaños de Ana",
         },
 
         en: {
@@ -135,6 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "galeria-eventos-privados": "Private Events",
             "caption-evento1": "Jesús' 80th Birthday",
             "caption-evento2": "Setup for Jesús' 80th birthday",
+            "caption-evento3": "Ana's Birthday",
+            "caption-evento4": "Setup for Ana's birthday",
         }
     };
 

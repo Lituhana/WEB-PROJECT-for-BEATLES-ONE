@@ -1095,6 +1095,7 @@ footer p {
     }
 
     .hero-video {
+        transform: scale(1.35);
         object-position: center 20%;
     }
 

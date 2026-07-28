@@ -317,7 +317,7 @@ main section.active {
     margin: -40px auto 20px;
     padding: 10px 20px;
     background: rgba(0, 0, 0, .35);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,.15);
     border-radius: 16px;
@@ -564,6 +564,7 @@ main section.active {
     width: 100%;
     height: 600px;
     border-radius: 10px;
+    border: 2px solid var(--gris-oscuro);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     display: block;
     object-fit: cover;
@@ -685,6 +686,7 @@ main section.active {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     border: 3px solid transparent;
+    
 }
 
 .galeria-grid img:hover {
@@ -723,6 +725,7 @@ main section.active {
     min-height: 100px;
     transition: transform 0.2s ease;
     border: none;
+    
 }
 
 #lista-shows-proximos .show-card:hover {
@@ -962,9 +965,11 @@ footer p {
     align-items: center;
     text-align: center;
     padding: 32px 28px;
-    border: 1px solid var(--gris-oscuro);
+    border: 2px solid var(--gris-oscuro);
     border-radius: 12px;
     background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(20px);
     gap: 12px;
 }
 
@@ -1249,6 +1254,9 @@ footer p {
         margin: -10px auto 20px;
         padding: 3px 8px;
         border-radius: 12px;
+        background: rgba(10, 10, 10, 0.6);
+        border: 2px solid var(--gris-oscuro);
+        box-shadow: 0 8px 30px rgba(0,0,0,.35);
     }
 
     .review-stars{

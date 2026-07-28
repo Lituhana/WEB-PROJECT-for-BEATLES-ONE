@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "instagram-btn": "@beatles.one",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "El Tributo Definitivo a The Beatles de Uruguay",
+            "review1-desktop": "Excelente servicio. Un show perfecto. Super profesionales, desde la presentación, las caracterizaciones y el sonido. El sonido profesional hace la diferencia. Atentos a cada detalle, adaptándose a la dinámica y horarios del evento. Sumamente recomendables.",
+            "review1-mobile": "Excelente servicio. Un show perfecto. Super profesionales, desde la presentación, las caracterizaciones y el sonido.",
+            "review2-desktop": "Excelente. Brindaron un servicio súper disfrutable y que le dio brillo y alegría a la fiesta cumpleañera. <br> Los recomiendo al 100%",
+            "review2-mobile": "Excelente. Brindaron un servicio súper disfrutable y que le dio brillo y alegría a la fiesta cumpleañera. Los recomiendo al 100%",
             "nosotros-piedefoto": "Beatles One participando de la 25° Beatleweek en The Cavern Club de Bs As - 2025",
             "shows-titulo": "Próximos Shows",
             "shows-pasados-titulo": "Shows Anteriores",
@@ -92,6 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "instagram-btn": "@beatles.one",
             "nosotros-titulo_1": "Beatles One",
             "nosotros-titulo_2": "The Ultimate Beatles Tribute from Uruguay",
+            "review1-desktop": "Excellent service. A perfect gig. Highly professional from the performance, characterisations and sound. Professional sound quality makes all the difference. Attentive to every single detail, adapting seamlessly to the event's schedule and dynamic. Highly recommended.",
+            "review1-mobile": "Excellent service. A perfect gig. Highly professional from the performance, characterisations and sound.",
+            "review2-desktop": "Brilliant. They provided a fantastic set that brought real sparkle and joy to the birthday party. <br> Would recommend them 100%",
+            "review2-mobile": "Brilliant. They provided a fantastic set that brought real sparkle and joy to the birthday party. Would recommend them 100%",
             "nosotros-piedefoto": "Beatles One performing at the 25th Beatleweek at The Cavern Club in Buenos Aires - 2025",
             "shows-titulo": "Upcoming Gigs",
             "shows-pasados-titulo": "Past Gigs",
@@ -256,6 +264,81 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error al cargar shows:", error);
         }
     };
+
+ /* Opiniones */
+
+const reviews = document.querySelectorAll(".review");
+const dots = document.querySelectorAll(".dot");
+
+let currentReview = 0;
+
+function updateReviewText() {
+
+    const mobile = window.innerWidth <= 768;
+
+    reviews.forEach(review => {
+
+        const desktopText = review.querySelector(".review-desktop");
+        const mobileText = review.querySelector(".review-mobile");
+
+        if (!desktopText || !mobileText) return;
+
+        desktopText.style.display = mobile ? "none" : "block";
+        mobileText.style.display = mobile ? "block" : "none";
+    });
+
+}
+
+function showReview(index) {
+
+    reviews.forEach(r => r.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+
+    reviews[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    currentReview = index;
+
+    updateReviewText();
+
+}
+
+let reviewTimer;
+
+function startReviewTimer() {
+
+    clearTimeout(reviewTimer);
+
+    reviewTimer = setTimeout(() => {
+
+        currentReview++;
+
+        if (currentReview >= reviews.length) {
+            currentReview = 0;
+        }
+
+        showReview(currentReview);
+        startReviewTimer();
+
+    }, 6000);
+
+}
+
+dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+        showReview(index);
+        startReviewTimer();
+
+    });
+
+});
+
+window.addEventListener("resize", updateReviewText);
+
+showReview(0);
+startReviewTimer();
 
     // Renderizamos los Shows
 

@@ -310,11 +310,115 @@ main section.active {
     margin-bottom: 20px;
 }
 
+/* Opiniones */
+
+.reviews-home{
+    max-width: 700px;
+    margin: -40px auto 20px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, .35);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.35);
+}
+
+.review {
+    display: none;
+    animation: fade .5s ease;
+    text-decoration: none !important;
+    color: inherit !important;         
+    cursor: pointer;                  
+}
+
+.review.active{
+    display:block;
+}
+
+.review-stars{
+    color:#ffcb1e;
+    font-size:1.6rem;
+    margin-bottom:10px;
+    text-align: center;
+}
+
+.review-text{
+    color:var(--beige);
+    font-style:italic;
+    font-size:1rem;
+    line-height:1.6;
+    margin-bottom:10px;
+    text-align: center;
+}
+
+.review-author{
+    display: block;
+    width: 100%;
+    margin-top: -7px;
+    text-align: right;
+    color: var(--verde);
+    font-weight: 600;
+}
+
+.review-dots{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: var(--gris-claro);
+    cursor: pointer;
+    margin: 0 4px;
+    transition:
+        background-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.dot:not(.active):hover{
+    background: var(--beige);
+    box-shadow: 0 0 10px rgba(255,255,255,.5);
+}
+
+.dot.active{
+    background: var(--verde);
+}
+
+.review:hover,
+.review:focus,
+.review:visited,
+.review:active {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.review p,
+.review span,
+.review div {
+    text-decoration: none !important;
+}
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 /* Inicio - Próximo Show */
 
 .proximo-show-section {
-    margin-top: 60px;
-    margin-bottom: 150px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
 }
@@ -509,7 +613,8 @@ main section.active {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    margin: 30px 0;
+    margin-top: 80px;
+    margin-bottom: 30px;
 }
 
 .carousel-btn {
@@ -842,11 +947,11 @@ footer p {
 /* Sección Redes Sociales */
 
 .redes-section {
-    margin-top: 80px;
+    margin-top: 50px;
     display: flex;
     gap: 30px;
     justify-content: center;
-    padding: 40px 0 20px;
+    padding: 40px 0 50px;
 }
 
 .red-card {
@@ -1135,16 +1240,54 @@ footer p {
         text-align: center;
     }
 
+    /* Opiniones */
+
+@media (max-width: 800px){
+
+    .reviews-home{
+        max-width: 400px;
+        margin: -10px auto 20px;
+        padding: 3px 8px;
+        border-radius: 12px;
+    }
+
+    .review-stars{
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .review-text{
+        font-size: .80rem;
+        line-height: 1.4;
+        margin-bottom: 5px;
+    }
+
+    .review-author{
+        margin-top: 5px;
+        margin-bottom: -5px;
+        font-size: .85rem;
+    }
+
+    .review-dots{
+        margin-top: 1px;
+    }
+
+    .dot{
+        width: 6px;
+        height: 6px;
+        margin: 0 2px;
+    }
+    }
     .carousel-container {
-        margin: -50px 0 30px;
+        margin: 10px 0 20px;
     }
 
     .redes-section {
         flex-direction: row;
         gap: 10px;
         padding: 20px 0;
-        margin-top: 60px;
-        margin-bottom: -30px;
+        margin-top: 40px;
+        margin-bottom: 10px;
     }
 
     .red-card {

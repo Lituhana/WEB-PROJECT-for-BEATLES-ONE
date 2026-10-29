@@ -126,11 +126,30 @@
 
         </a>
 
+        <a href="https://www.ineventos.com/uy/beatlesone#cmts" target="_blank" rel="noopener noreferrer" class="review">
+
+            <div class="review-stars">★★★★★</div>
+
+            <p class="review-text review-desktop" data-section="review3-desktop">
+                "Nos encantó el grupo muy profesional y nos transportó a esos tiempos. Superó las expectativas. Gracias."
+            </p>
+
+            <p class="review-text review-mobile" data-section="review3-mobile">
+                 "Nos encantó el grupo muy profesional y nos transportó a esos tiempos. Superó las expectativas. Gracias."
+            </p>
+
+            <span class="review-author">
+                Virginia
+            </span>
+
+        </a>
+
     </div>
 
     <div class="review-dots">
         <button class="dot active" aria-label="Review 1"></button>
         <button class="dot" aria-label="Review 2"></button>
+        <button class="dot" aria-label="Review 3"></button>
     </div>
 
 </div>
@@ -140,7 +159,7 @@
 
                 <div class="proximo-show-card">
 
-                    <img src="assets/img/Portada.jpg"
+                    <img src="assets/img/Foto13.jpeg"
                          alt="Próximo Show - Beatles One"
                          class="proximo-show-img">
 
@@ -330,8 +349,7 @@
                 <img src="assets/img/FiestaPrivada2.png" alt="Cumpleaños de Ana" data-caption-key="caption-evento3" loading="lazy">
                 <img src="assets/img/FiestaPrivada1.jpeg" alt="El set up para el Cumpleaños de Ana" data-caption-key="caption-evento4" loading="lazy">
                 <img src="assets/img/FiestaPrivada2.1.jpeg" alt="Cumpleaños de Ana" data-caption-key="caption-evento3" loading="lazy">
-                <!-- <img src="assets/img/Evento5.jpeg" alt="Eventos Privados Beatles One" data-caption="" loading="lazy">
-                <img src="assets/img/Evento6.jpeg" alt="Eventos Privados Beatles One" data-caption="" loading="lazy">  -->
+                <img src="assets/img/Nostalgia2026.jpeg" alt="Fiesta de la Nostalgia en 252 Plaza, Paso de los Toros" data-caption-key="caption-evento5" loading="lazy">
             </div>
 
     <!-- Efecto para la galería de fotos -->
@@ -373,12 +391,16 @@
             </div>
 
             <form id="contacto-formulario"
-                  action="https://formsubmit.co/ajax/beatles.one.band@gmail.com"
-                  method="POST">
+                name="contacto"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field">
 
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde Beatles One">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="form-name" value="contacto">
+                <input type="hidden" name="subject" value="Nuevo mensaje desde Beatles One">
+                <p hidden>
+                    <label>No completar: <input name="bot-field"></label>
+                </p>
 
                 <!-- Creamos los campos del formulario de Contacto -->
 
@@ -399,6 +421,11 @@
                 <div class="form-group">
                     <label for="email" data-section="label-email"> Correo: </label>
                     <input type="email" id="email" name="email" placeholder="John@beatles.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono" data-section="label-phone"> Teléfono de Contacto: </label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="099123456" inputmode="numeric" pattern="[0-9]+" required>
                 </div>
 
                 <div class="form-group">

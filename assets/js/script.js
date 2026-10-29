@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "review1-mobile": "\"Excelente servicio. Un show perfecto. Super profesionales, desde la presentación, las caracterizaciones y el sonido.\"",
             "review2-desktop": "\"Excelente. Brindaron un servicio súper disfrutable y que le dio brillo y alegría a la fiesta cumpleañera. <br> Los recomiendo al 100%\"",
             "review2-mobile": "\"Excelente. Brindaron un servicio súper disfrutable y que le dio brillo y alegría a la fiesta cumpleañera. Los recomiendo al 100%\"",
+            "review3-desktop": "\"Nos encantó el grupo muy profesional y nos transportó a esos tiempos. Superó las expectativas. Gracias.\"",
+            "review3-mobile": "\"Nos encantó el grupo muy profesional y nos transportó a esos tiempos. Superó las expectativas. Gracias.\"",
             "nosotros-piedefoto": "Beatles One participando de la 25° Beatleweek en The Cavern Club de Bs As - 2025",
             "shows-titulo": "Próximos Shows",
             "shows-pasados-titulo": "Shows Anteriores",
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "opt-otros": "Otros",
             "label-name": "Nombre:",
             "label-email": "Correo:",
+            "label-phone": "Teléfono de Contacto:",
             "label-msg": "Mensaje:",
             "btn-send": "Enviar",
             "confirmacion-msg": "¡Mensaje enviado! Te responderemos a la brevedad.",
@@ -100,6 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "review1-mobile": "\"Excellent service. A perfect gig. Highly professional from the performance, characterisations and sound.\"",
             "review2-desktop": "\"Brilliant. They provided a fantastic set that brought real sparkle and joy to the birthday party. <br> Would recommend them 100%\"",
             "review2-mobile": "\"Brilliant. They provided a fantastic set that brought real sparkle and joy to the birthday party. Would recommend them 100%\"",
+            "review3-desktop": "\"We loved the group, so professional, and they truly transported us back to that era. It exceeded our expectations. Thank you.\"",
+            "review3-mobile": "\"We loved the group, so professional, and they truly transported us back to that era. It exceeded our expectations. Thank you.\"",
             "nosotros-piedefoto": "Beatles One performing at the 25th Beatleweek at The Cavern Club in Buenos Aires - 2025",
             "shows-titulo": "Upcoming Gigs",
             "shows-pasados-titulo": "Past Gigs",
@@ -111,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "opt-otros": "Other",
             "label-name": "Name:",
             "label-email": "Email:",
+            "label-phone": "Phone:",
             "label-msg": "Message:",
             "btn-send": "Send",
             "confirmacion-msg": "Message sent successfully! We'll get back to you soon.",
@@ -147,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "caption-evento2": "Setup for Jesús' 80th birthday",
             "caption-evento3": "Ana's Birthday",
             "caption-evento4": "Setup for Ana's birthday",
+            "caption-evento5": "Nostalgia Party at 252 Plaza, Paso de los Toros",
         }
     };
 
@@ -616,10 +623,10 @@ if (enlaceLogo) {
             const datosFormulario = new FormData(formulario);
 
             try {
-                const respuesta = await fetch(formulario.action, {
+                const respuesta = await fetch("/", {
                     method: "POST",
-                    body: datosFormulario,
-                    headers: { 'Accept': 'application/json' }
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(datosFormulario).toString()
                 });
 
                 if (respuesta.ok) {
@@ -631,7 +638,7 @@ if (enlaceLogo) {
 
                         setTimeout(() => {
                             mensajeConfirmacion.style.display = "none";
-                        }, 4000);
+                        }, 6000);
                     }
 
                     irASeccion("contacto");
@@ -642,6 +649,36 @@ if (enlaceLogo) {
             }
         });
     }
+
+    const mensajesValidacion = {
+        es: {
+            valueMissing: "Completa este campo",
+            typeMismatch: "Ingresa un correo válido",
+            patternMismatch: "Ingresa solo números"
+        },
+        en: {
+            valueMissing: "Please fill out this field",
+            typeMismatch: "Please enter a valid email address",
+            patternMismatch: "Enter numbers only"
+        }
+    };
+
+    ["nombre", "email", "telefono", "mensaje"].forEach((id) => {
+        const campo = document.getElementById(id);
+        if (!campo) return;
+
+        campo.addEventListener("invalid", () => {
+            const idioma = document.documentElement.lang === "en" ? "en" : "es";
+            const textos = mensajesValidacion[idioma];
+            const estado = campo.validity;
+
+            if (estado.valueMissing) campo.setCustomValidity(textos.valueMissing);
+            else if (estado.typeMismatch) campo.setCustomValidity(textos.typeMismatch);
+            else if (estado.patternMismatch) campo.setCustomValidity(textos.patternMismatch);
+        });
+
+        campo.addEventListener("input", () => campo.setCustomValidity(""));
+    });
 
     // Lightbox de Galería
 
